@@ -1,3 +1,5 @@
+# Last update: 4.27.2011, extra lulz added
+
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -102,4 +104,6 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-source ~/.local/bin/bashmarks.sh 
+source ~/.local/bin/bashmarks.sh
+
+alias edwin='scheme -edwin -edit' 
