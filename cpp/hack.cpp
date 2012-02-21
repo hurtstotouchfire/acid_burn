@@ -7,8 +7,7 @@ int Add(int x, int y)
 	return(x+y);
 }
 
-int main() 
-{
+int main() {
 	cout << "Here is 5: " << 5 << "\n";
 	cout << "The manipulator endl writes a new line to the screen." << endl;
 	

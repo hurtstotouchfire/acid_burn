@@ -2,9 +2,16 @@
 " Many of these are taken from http://www.linuxjournal.com/article/3805?page=0,1
 " last updated 2012_02_17
 
+""" tips? 
+"';66,81s/color/texture/g' replaces all instances of color from lines 66-81 with texture, awesome
+" ':source ~/.vimrc' to reset .vimrc live?
+
+
 syntax on "Obvious.
 
 set number "shows line numbers
+
+set autoindent "does 'dumb' indent, where automatically indents similar to previous line
 
 set wildmenu "in cmds and maybe more, displays possible autocompletions if tab hit
 set wildmode=longest,list "tab-autocomplete to longest common string, and display list of ALL possibilites
@@ -18,7 +25,8 @@ set smartcase "unless non-lowercase letters searched for
 
 set scrolloff=2 "keeps at least 2 lines shown around the cursor
 
-"set textwidth=76 "makes a hard line break at 76, currently off.
+set textwidth=80 "makes a hard line break at 76, currently off.
+au BufEnter *.tex set textwidth=0 "so doesn't apply to tex files
 
 "Mappings.__________________________________________________
 
@@ -34,6 +42,9 @@ imap <c-l> <c-w>
 
 "map $, go to beginning of line, to 4, bc that binding is full retard
 map 9 $
+
+"maps r to replace whatever is Visual selected with what's in the buffer
+vmap r "_dP 
 
 " On OSX, uses sys calls to copy to/from clipboard in insert mode
 vmap <C-c> y:call system("pbcopy", getreg("\""))<CR>
