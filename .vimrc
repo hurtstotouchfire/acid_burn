@@ -1,6 +1,3 @@
-" Le .vimrc of Austin Soplata. In all probability, overconfigured.
-" Many of these are taken from http://www.linuxjournal.com/article/3805?page=0,1
-" last updated 2012_02_17
 
 """ tips? 
 "';66,81s/color/texture/g' replaces all instances of color from lines 66-81 with texture, awesome
@@ -48,4 +45,16 @@ vmap r "_dP
 
 " On OSX, uses sys calls to copy to/from clipboard in insert mode
 vmap <C-c> y:call system("pbcopy", getreg("\""))<CR>
-nmap <C-v> :call setreg("\"",system("pbpaste"))<CR>p
+" was mapped to <C-v>, but Visual Block is useful for commenting text blocks
+nmap <C-k> :call setreg("\"",system("pbpaste"))<CR>p
+
+" In insert mode, autocloses parentheses, brackets, braces, single and dub q's
+imap ( ()<Left>
+imap [ []<Left>
+imap { {}<Left>
+
+" For m-files, when type 'for', automagically make an 'end' on the line below
+au BufEnter *.m imap for for<CR><CR>end<Esc>kkA
+au BufEnter *.m imap if if<CR><CR>end<Esc>kkA
+
+nmap <silent> <c-n> :NERDTreeToggle<CR>
