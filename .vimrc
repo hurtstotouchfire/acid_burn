@@ -1,8 +1,10 @@
+" Le .vimrc of Austin Soplata. Unnecessarily large, just like his ego.
+" Last update: Tue Mar  6 20:30:11 EST 2012
 
 """ tips? 
-"';66,81s/color/texture/g' replaces all instances of color from lines 66-81 with texture, awesome
+" ';66,81s/color/texture/g' replaces all instances of color from lines 66-81 with texture, awesome
 " ':source ~/.vimrc' to reset .vimrc live?
-
+" ':r !date' to insert the time from the Unix date utility
 
 syntax on "Obvious.
 
