@@ -1,0 +1,52 @@
+-----Structure and Interpretation of Computer Programs
+(these notes will be recorded in analog first, then transcribed)
+
+-to run scheme, startup emacs and M-x run-scheme
+
+----Ch 1: Building Abstractions with Procedures
+-Lisp was devlpd in '50s for reasoning with recursive logical expressions
+-original paper: McCarthy 1960, "Recursive Functions of Symbolic Expressions and Their Computation by Machine"
+-LISP = LISt Processing
+-lisp is made of data objs called atoms and lists
+-lisp description of procs are called 'procedures', and can of course be manipulated as data
+-one lisp strength is blurring b/w passive data and active procs, and it can repr procs as data, making it excellent for manipulating OTHER programs as data [incl other langs?]
+
+---Section 1.1: The Elements of Programming
+-every language has 
+-1. Primitive expressions - the simplest entities the language interacts with
+-2. Means of combination - how compound elements are built from smaller ones
+-3. Means of abstraction - how compound elements are named and manipulated
+-the two kinds of elements are procs and data
+
+--1.1.1 Expressions
+-lisp uses an interpreter, and when you type in an EXPRESSION, it is EVALUATED
+-basic math operators are primitive procedures in lisp
+-combination of primitives is 
+/e.g. (+ 137 349)
+-expression delimiting (or, creating the boundaries of expressions) via
+parentheses makes things called 'combinations'
+-in above example, '+' is 'operator', and numbers are 'operands'
+/the 'arguments' are the values of the operands
+/uses 'prefix notation', which is weird until you see (+ 21 35 12 7)
+/also allows easy nesting, e.g. (+ (* 3 5) (- 10 6))
+$ -the interpreter always uses the same cycle: reads expr from terminal, evals
+$ the expr, prints the result. This is called the 'read-eval-print-loop'
+/note that you don't have to tell the interpreter to specifically print
+
+--1.1.2 Naming and the Environment
+-a 'name' IDs a 'variable' with a 'value' which is the 'object', e.g.
+(define size 2)
+/where 2 is the 'value' of the variable 'size'
+-the mem by which the interpreter keeps track of name-obj pairs is the
+'environment', or the 'global environment'
+
+--1.1.3 Evaluating Combinations
+-the interpreter:
+/1. evalutes subexprs of the combo
+/2. applies the procedure that happens to be the leftmost subexpr (operator) to
+the values of the other subexprs (operands)
+-recursively, to evaluate the combo, must first eval each part of the combo,eg
+(* (+ 2 (* 4 6))
+   (+ 3 5 7))
+$ -this eval that uses 'percolate values upward' rules is aka 'tree accumulation'
+
