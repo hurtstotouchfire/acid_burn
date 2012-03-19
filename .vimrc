@@ -24,8 +24,17 @@ set smartcase "unless non-lowercase letters searched for
 
 set scrolloff=2 "keeps at least 2 lines shown around the cursor
 
-set textwidth=80 "makes a hard line break at 76, currently off.
+" These tab fixtures, predominantly for python, from http://www.velocityreviews.com/forums/t539545-vim-whats-a-smarttab.html
+set tabstop=4 "4 space tab
+set shiftwidth=4 "The amount to block indent when using < and >
+set smarttab "Uses shiftwidth instead of tabstop at start of lines
+set expandtab "Replaces a <TAB> with spaces--more portable
+set softtabstop=4 "Causes backspace to delete 4 spaces = converted <TAB>
+
+set textwidth=80 "makes a hard line break at 76
 au BufEnter *.tex set textwidth=0 "so doesn't apply to tex files
+au BufEnter *.txt set textwidth=0 "so doesn't apply to typical text files
+au BufEnter *.html set textwidth=0 "so doesn't apply to html files
 
 "Mappings.__________________________________________________
 
@@ -54,6 +63,7 @@ nmap <C-k> :call setreg("\"",system("pbpaste"))<CR>p
 imap ( ()<Left>
 imap [ []<Left>
 imap { {}<Left>
+au BufEnter *.html imap < <lt>><Left>
 
 " For m-files, when type 'for', automagically make an 'end' on the line below
 au BufEnter *.m imap for for<CR><CR>end<Esc>kkA

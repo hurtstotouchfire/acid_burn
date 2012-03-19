@@ -49,4 +49,44 @@ the values of the other subexprs (operands)
 (* (+ 2 (* 4 6))
    (+ 3 5 7))
 $ -this eval that uses 'percolate values upward' rules is aka 'tree accumulation'
+/'percolate values upward' is a clear exa of recursion
+$ -"the key point to notice is the role of the environ in determining the meaning of the symbols in exprs"
+/in ch3, need to understand "the environ as providing context in which eval takes place", e.g. 'what exactly is represented by x, or even the operator +
+$ -'define' is a special example of "special forms", since technically it is not treated as a operator-operand "combination"
+/all special forms have their own eval rules
+
+--1.1.4 Compound Procedures
+-have shown numbers and math operations as primitive data and procs, nesting allows combination, and defns can provide a small lvl of abstraction
+$ -next have "proc defns", wherein a compound defn can be given a name, eg
+(define (square x) (* x x))
+-gen form is (define (<name> <formal parameters>) <body>)
+/where <name> is the name to be associated with it in the environ
+-of course, can nest comp procs themselves, eg
+(define (sum-of-squares x y)
+  (+ (square x) (square y)))
+
+--1.1.5 The Substitution Mdl for Proc Application
+-When a combo's operator is a comp proc interpreter does same thing as if the operators were primitive procs
+-can go through the "substitution mdl" of proc application
+/this is to help think about proc app, not understand how the interpreter is working
+/"in practice, the 'substitution' is accomplished by using a local env for formal params
+-eventually, in ch5 will have gone through entirety of an interpreter and compiler?
+-the "substitution mdl" is analagous to the simplest mdls in phys/engr, eg point mdls in physics
+-in ch3 when bring up "mutable data", substitution mdl breaks down
+--Applicative order vs. normal order
+-normal order is "don't eval the operands until their values are needed"
+/gives same answer as (f 5), but goes in different order, incl doing a few operations twice
+-this is the same as FULL EXPANSION, and called normal-order eval
+-"eval the arguments and then apply" is applicative-order evaluation
+-for all procs that can be mdl'd using substitution, these sequence types make the same answer
+/however, there are problems like Exercise 1.5 where this is not the case
+-Lisp uses applicative-order eval, due to incr efficiency and normal-order get smuch more complicated for problems that can't be handled using substitution
+
+--1.1.6 Conditional exprs and Predicates
+-a test for cases, e.g. a simple absolute value test, is called a CASE ANALYSIS
+-special Lisp form for case analyses is "cond", for conditional, e.g.
+(define (abs x)
+  (cond ((> x 0) x)
+  	((= x 0) 0)
+	((< x 0) (-x))))
 
