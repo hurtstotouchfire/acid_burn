@@ -89,4 +89,15 @@ $ -next have "proc defns", wherein a compound defn can be given a name, eg
   (cond ((> x 0) x)
   	((= x 0) 0)
 	((< x 0) (-x))))
+-for (cond (<p_1> <e_1>)...), each p-e is a CLAUSE, p is a PREDICATE, e is CONSEQUENT EXPR
+/each predicate from p_1 to p_2 on down is eval'd until a true value is found
+/predicate can be proc or expr[incl code itself?]
 
+-"if" is a special case of cond, wherein there are only two cases, e.g.
+(if <predicate> <consequence> <ALTERNATIVE> )
+/there's also
+(and e_1 ... e_n) happens left to right
+(or e_1 ... e_n) left to right
+(not e) This is true when expr e is false.
+$ -and and or are special forms, thus NOT procs, since not all subexprs are always eval'd
+/not IS a regular proc

@@ -8,9 +8,24 @@
 
 syntax on "Obvious.
 
+" solarized options 
+let g:solarized_termcolors = 256 
+let g:solarized_visibility = "high" 
+let g:solarized_contrast = "high" 
+syntax enable
+" set background = dark
+colorscheme solarized 
+
+"for pathogen plugin help, can easily access plugins at ~/.vim/bundle at runtime, whatever that means.
+"call pathogen#infect()
+"""calling the above for some reason spits out a bunch of gibberish; may have
+"""wrong pathogen file
+
+set guifont=Inconsolata:h16
+
 set number "shows line numbers
 
-set autoindent "does 'dumb' indent, where automatically indents similar to previous line
+set ruler "shows cursor location
 
 set wildmenu "in cmds and maybe more, displays possible autocompletions if tab hit
 set wildmode=longest,list "tab-autocomplete to longest common string, and display list of ALL possibilites
@@ -24,6 +39,7 @@ set smartcase "unless non-lowercase letters searched for
 
 set scrolloff=2 "keeps at least 2 lines shown around the cursor
 
+set autoindent "does 'dumb' indent, where automatically indents similar to previous line
 " These tab fixtures, predominantly for python, from http://www.velocityreviews.com/forums/t539545-vim-whats-a-smarttab.html
 set tabstop=4 "4 space tab
 set shiftwidth=4 "The amount to block indent when using < and >
@@ -48,10 +64,11 @@ map ] }
 "map ctrl-l to delete the previous word in insert mode, finally got this on 2012_02_17!!!
 imap <c-l> <c-w>
 
-"map $, go to beginning of line, to 4, bc that binding is full retard
+"map $, go to beginning of line, to 9, bc that binding is full retard 
 map 9 $
 
 "maps r to replace whatever is Visual selected with what's in the buffer
+"not sure I've ever used this
 vmap r "_dP 
 
 " On OSX, uses sys calls to copy to/from clipboard in insert mode
@@ -70,3 +87,22 @@ au BufEnter *.m imap for for<CR><CR>end<Esc>kkA
 au BufEnter *.m imap if if<CR><CR>end<Esc>kkA
 
 nmap <silent> <c-n> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
+
+"from http://nvie.com/posts/how-i-boosted-my-vim/
+"allows comma to act as the first key in chain command eg Emacs' Meta-x
+let mapleader=","
+""thus, allows these to use ",ev/,sv" to edit/reload vimrc file.
+""Use this to let your imagination run wild.
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
+
+"nonfunctional, since requires ruby and can't get it to work in MacVim
+" nmap <leader>t :CommandT<CR> 
+
+"opens file, eg new tab in default browser, for current file
+nmap <leader>o :!open % &<CR><CR>
+"need full path, not just %'s name of file
+nmap <leader>d :lcd %:p:h<CR>
+au BufEnter *.tex nmap <leader>p ::lcd %:p:h<CR> :!pdflatex %<CR>
+
