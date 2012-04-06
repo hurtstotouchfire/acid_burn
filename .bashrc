@@ -10,3 +10,7 @@ TERM="xterm-256color"
 
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 alias firefox="/Applications/Firefox.app/Contents/MacOS/firefox-bin"
+
+alias ll="ls -l"
+alias la="ls -a"
+alias lal="ls -la"
