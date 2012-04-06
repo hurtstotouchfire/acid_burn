@@ -13,7 +13,7 @@ let g:solarized_termcolors = 256
 let g:solarized_visibility = "high" 
 let g:solarized_contrast = "high" 
 syntax enable
-" set background = dark
+set background=dark
 colorscheme solarized 
 
 "for pathogen plugin help, can easily access plugins at ~/.vim/bundle at runtime, whatever that means.
@@ -52,6 +52,8 @@ au BufEnter *.tex set textwidth=0 "so doesn't apply to tex files
 au BufEnter *.txt set textwidth=0 "so doesn't apply to typical text files
 au BufEnter *.html set textwidth=0 "so doesn't apply to html files
 
+set noswapfile
+
 "Mappings.__________________________________________________
 
 "maps colon to just a press of semicolon, for easier cmd instigation
@@ -66,6 +68,9 @@ imap <c-l> <c-w>
 
 "map $, go to beginning of line, to 9, bc that binding is full retard 
 map 9 $
+
+"map space to insert just one character
+nmap <Space> i_<Esc>r
 
 "maps r to replace whatever is Visual selected with what's in the buffer
 "not sure I've ever used this
@@ -104,5 +109,8 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 nmap <leader>o :!open % &<CR><CR>
 "need full path, not just %'s name of file
 nmap <leader>d :lcd %:p:h<CR>
-au BufEnter *.tex nmap <leader>p ::lcd %:p:h<CR> :!pdflatex %<CR>
+"for .tex, changed path of buffer to that of current file and prints it
+" au BufEnter *.tex 
+" nmap <leader>p :lcd %:p:h<CR> :!pdflatex %<CR>
+au BufEnter *.tex nmap <leader>p :!pdflatex %<CR>
 
