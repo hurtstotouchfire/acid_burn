@@ -87,9 +87,9 @@ imap [ []<Left>
 imap { {}<Left>
 au BufEnter *.html imap < <lt>><Left>
 
-" For m-files, when type 'for', automagically make an 'end' on the line below
-au BufEnter *.m imap for for<CR><CR>end<Esc>kkA
-au BufEnter *.m imap if if<CR><CR>end<Esc>kkA
+" For m-files, when type 'for,', automagically make an 'end' on the line below
+au BufEnter *.m imap for, for<CR><CR>end<Esc>kkA
+au BufEnter *.m imap if, if<CR><CR>end<Esc>kkA
 
 nmap <silent> <c-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
