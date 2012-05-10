@@ -1,5 +1,14 @@
-" Le .vimrc of Austin Soplata. Unnecessarily large, just like his ego.
-" Last update: Tue Mar  6 20:30:11 EST 2012
+"""
+    "'File:                   .vimrc
+    "' Author:                Austin Soplata, of austin.soplata@gmail.com 
+    "' Last Modified:         Thu May 10 05:46 PM 2012 EDT
+    "' Known Dependencies:    lastchange.vim in ~/.vim/plugin
+    "' Inputs:                x 
+    "' Outputs:               x 
+    "' Description:           Not nearly as long as his...ego. 
+    "' Todo:                  x 
+"""
+
 
 """ tips? 
 " ';66,81s/color/texture/g' replaces all instances of color from lines 66-81 with texture, awesome
@@ -57,11 +66,13 @@ set noswapfile
 "Mappings.__________________________________________________
 
 "maps colon to just a press of semicolon, for easier cmd instigation
-map ; :
+nmap ; :
 
 "map curly brackets to regular brackets for no shift paragraph movement
-map [ {
-map ] }
+vmap [ {
+vmap ] }
+nmap [ {
+nmap ] }
 
 "map ctrl-l to delete the previous word in insert mode, finally got this on 2012_02_17!!!
 imap <c-l> <c-w>
@@ -71,10 +82,6 @@ map 9 $
 
 "map space to insert just one character
 nmap <Space> i_<Esc>r
-
-"maps r to replace whatever is Visual selected with what's in the buffer
-"not sure I've ever used this
-vmap r "_dP 
 
 " On OSX, uses sys calls to copy to/from clipboard in insert mode
 vmap <C-c> y:call system("pbcopy", getreg("\""))<CR>
@@ -114,3 +121,17 @@ nmap <leader>d :lcd %:p:h<CR>
 " nmap <leader>p :lcd %:p:h<CR> :!pdflatex %<CR>
 au BufEnter *.tex nmap <leader>p :!pdflatex %<CR>
 
+"inserts code header
+" au BufEnter *.m 
+nmap <leader>intro i%{<CR>
+        \<C-i> File: <C-i><C-i><C-i><C-i><C-i>x<CR>
+        \Author: <C-i><C-i><C-i><C-i>Austin Soplata, of austin.soplata@gmail.com <CR>
+        \Last Modified:<C-i><C-i><C-i>x <CR>
+        \Known Dependencies:<C-i>x <CR>
+        \Inputs:<C-i><C-i><C-i><C-i>x <CR>
+        \Outputs:<C-i><C-i><C-i><C-i>x <CR>
+        \Description:<C-i><C-i><C-i>x <CR>
+        \Todo:<C-i><C-i><C-i><C-i><C-i>x <CR>
+        \<C-h><C-h>%}<CR><Esc>xx
+
+" :put =expand('%:t')
