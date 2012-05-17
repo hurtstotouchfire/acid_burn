@@ -1,7 +1,7 @@
 """
     "'File:                   .vimrc
     "' Author:                Austin Soplata, of austin.soplata@gmail.com 
-    "' Last Modified:         Thu May 10 05:46 PM 2012 EDT
+    "' Last Modified:         Thu May 17 06:46 PM 2012 EDT
     "' Known Dependencies:    lastchange.vim in ~/.vim/plugin
     "' Inputs:                x 
     "' Outputs:               x 
@@ -12,6 +12,12 @@
 
 """ tips? 
 " ';66,81s/color/texture/g' replaces all instances of color from lines 66-81 with texture, awesome
+
+"" even better: incremental replace! use 
+" ':let i=1 | 38,46g/foo/s//\="bar_".i/ | let i=i+1'
+" to replace 'foo' in lines 38 to 46 with 'bar_1' on line 38, then 'bar_2' on
+" line 39, etc.! Faaaantastic.
+
 " ':source ~/.vimrc' to reset .vimrc live?
 " ':r !date' to insert the time from the Unix date utility
 
@@ -127,6 +133,7 @@ nmap <leader>intro i%{<CR>
         \<C-i> File: <C-i><C-i><C-i><C-i><C-i>x<CR>
         \Author: <C-i><C-i><C-i><C-i>Austin Soplata, of austin.soplata@gmail.com <CR>
         \Last Modified:<C-i><C-i><C-i>x <CR>
+	\Project: <C-i><C-i><C-i><C-i>x <CR>
         \Known Dependencies:<C-i>x <CR>
         \Inputs:<C-i><C-i><C-i><C-i>x <CR>
         \Outputs:<C-i><C-i><C-i><C-i>x <CR>
@@ -135,3 +142,5 @@ nmap <leader>intro i%{<CR>
         \<C-h><C-h>%}<CR><Esc>xx
 
 " :put =expand('%:t')
+
+au BufEnter *.m imap plot, plot( <Right><CR> xlabel(' '<Right><CR>) ylabel(' '<Right><CR><Up><Up><Right><Right><Right><Right>
