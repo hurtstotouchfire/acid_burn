@@ -1,7 +1,7 @@
 """
     "'File:                   .vimrc
     "' Author:                Austin Soplata, of austin.soplata@gmail.com 
-    "' Last Modified:         Thu May 17 06:46 PM 2012 EDT
+    "' Last Modified:         Tue Jul 03 10:16 PM 2012 EDT
     "' Known Dependencies:    lastchange.vim in ~/.vim/plugin
     "' Inputs:                x 
     "' Outputs:               x 
@@ -21,7 +21,17 @@
 " ':source ~/.vimrc' to reset .vimrc live?
 " ':r !date' to insert the time from the Unix date utility
 
+" 'gqap' apparently reformats the paragraph text
+
+""" end of tips, beginning of real buzinez
+
 syntax on "Obvious.
+"let $VIM ='~/Dropbox/progz/acid_burn/.vim/'
+let $VIM ='~/.vim/'
+
+"for pathogen plugin help, can easily access plugins at ~/.vim/bundle at runtime, whatever that means.
+call pathogen#infect()
+call pathogen#helptags()
 
 " solarized options 
 let g:solarized_termcolors = 256 
@@ -30,11 +40,6 @@ let g:solarized_contrast = "high"
 syntax enable
 set background=dark
 colorscheme solarized 
-
-"for pathogen plugin help, can easily access plugins at ~/.vim/bundle at runtime, whatever that means.
-"call pathogen#infect()
-"""calling the above for some reason spits out a bunch of gibberish; may have
-"""wrong pathogen file
 
 set guifont=Inconsolata:h16
 
@@ -68,6 +73,15 @@ au BufEnter *.txt set textwidth=0 "so doesn't apply to typical text files
 au BufEnter *.html set textwidth=0 "so doesn't apply to html files
 
 set noswapfile
+
+" shows a basic line w/ the current buffer's file, in addition to forcing the
+" modeline
+set modeline
+set ls=2
+
+" from http://nvie.com/posts/how-i-boosted-my-vim/ highlights whitespaces:
+set list
+set listchars=tab:>.,trail:.,extends:#,nbsp:.
 
 "Mappings.__________________________________________________
 
@@ -143,4 +157,16 @@ nmap <leader>intro i%{<CR>
 
 " :put =expand('%:t')
 
+" Easy window navigation
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
+
+" clear search string
+nmap <silent> ,/ :nohlsearch<CR>
+
+" experimental:
 au BufEnter *.m imap plot, plot( <Right><CR> xlabel(' '<Right><CR>) ylabel(' '<Right><CR><Up><Up><Right><Right><Right><Right>
+
+

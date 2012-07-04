@@ -121,3 +121,13 @@ $ -next have "proc defns", wherein a compound defn can be given a name, eg
 (not e) This is true when expr e is false.
 $ -and and or are special forms, thus NOT procs, since not all subexprs are always eval'd
 /not IS a regular proc
+/defn of special form is just that it's an exception to the general evaluation rule; instead it has its own specific one
+-then do hw...ugh 
+
+--1.1.7 Example: square roots by Newton's Method
+-procedures are similar to funcs in that they take one or more params and use them to determine a value [rly one or more values]
+-to diffxn b/w math funcs and progr procs, we can math-define sqrt to be
+"\sqrt{x} = y such that y >= 0 and y^2 = x"
+which doesn't help us progr
+-this contrast b/w func and proc is rly a diff b/w describing "about" things and describing "how to do" things, or "declarative" versus "imperative" knowledges.
+-
