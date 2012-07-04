@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/Users/wintermute/.emacs.d'
+let g:netrw_dirhist_2='/Users/wintermute/Dropbox/rsh/mtgs'
+let g:netrw_dirhist_3='/Users/wintermute/matlab-emacs'
+let g:netrw_dirhist_4='/Users/wintermute/Dropbox/class/w05/bi756.w05_lab2'
+let g:netrw_dirhist_5='/Users/wintermute/Dropbox/progz/acid_burn/python/learn_python_hard_way'
+let g:netrw_dirhist_6='/Users/wintermute/Dropbox/progz/Critical_Branching_Process'
+let g:netrw_dirhist_7='/User Guides And Information'
