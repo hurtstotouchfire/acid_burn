@@ -1,7 +1,19 @@
-cd 
+###
+#     File:                  x
+#     Author:                Austin Soplata, of austin.soplata@gmail.com 
+#     Last Modified:         Wed Jul 04 12:14 AM 2012 EDT
+#     Project:               x 
+#     Known Dependencies:    x 
+#     Inputs:                x 
+#     Outputs:               x 
+#     Description:           x 
+#     Todo:                  x 
+###
 
 # ssh-keygen -l -f /etc/ssh/ssh_host_key.pub, lists public key thing, e.g.
 # '99:99:99...'
+
+# VIMRUNTIME="/usr/share/vim/vim"
 
 alias tmux="TERM=screen-256color-bce tmux"
 TERM="xterm-256color"

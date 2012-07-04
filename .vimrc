@@ -1,7 +1,7 @@
 """
     "'File:                   .vimrc
     "' Author:                Austin Soplata, of austin.soplata@gmail.com 
-    "' Last Modified:         Tue Jul 03 10:16 PM 2012 EDT
+    "' Last Modified:         Wed Jul 04 12:24 AM 2012 EDT
     "' Known Dependencies:    lastchange.vim in ~/.vim/plugin
     "' Inputs:                x 
     "' Outputs:               x 
@@ -130,7 +130,8 @@ nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 "nonfunctional, since requires ruby and can't get it to work in MacVim
-" nmap <leader>t :CommandT<CR> 
+nmap <leader>t :CommandT<CR>
+"reset command-t in case of new file with :CommandTFlush
 
 "opens file, eg new tab in default browser, for current file
 nmap <leader>o :!open % &<CR><CR>
@@ -156,12 +157,6 @@ nmap <leader>intro i%{<CR>
         \<C-h><C-h>%}<CR><Esc>xx
 
 " :put =expand('%:t')
-
-" Easy window navigation
-nmap <C-h> <C-w>h
-nmap <C-j> <C-w>j
-nmap <C-k> <C-w>k
-nmap <C-l> <C-w>l
 
 " clear search string
 nmap <silent> ,/ :nohlsearch<CR>
