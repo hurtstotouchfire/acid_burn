@@ -1,7 +1,7 @@
 """
     "'File:                   .vimrc
     "' Author:                Austin Soplata, of austin.soplata@gmail.com 
-    "' Last Modified:         Wed Jul 04 12:24 AM 2012 EDT
+    "' Last Modified:         Wed Jul 25 06:18 PM 2012 EDT
     "' Known Dependencies:    lastchange.vim in ~/.vim/plugin
     "' Inputs:                x 
     "' Outputs:               x 
@@ -23,7 +23,20 @@
 
 " 'gqap' apparently reformats the paragraph text
 
+" for folding, 'zfap' folds the paragraph, 'zo' opens, 'zc' closes
+
+" 'qq' initiates recording, 'q' ends it, '.' repeats what was recorded
+
+" ctrl-o jumps cursor to prev posn, and ctrl-i the opposite, even b/w buffers!
 """ end of tips, beginning of real buzinez
+
+" iTerm2 tricks
+" cmd-shift-h brings up paste history
+" can right-click paste or just middle button paste!
+" cmd-; brings up its autocomplete
+" ctrl-f does regex ready search func
+" can use mouse wherever, even in vim to move
+" cmd+` displays/hides iterm2
 
 syntax on "Obvious.
 "let $VIM ='~/Dropbox/progz/acid_burn/.vim/'
@@ -33,18 +46,22 @@ let $VIM ='~/.vim/'
 call pathogen#infect()
 call pathogen#helptags()
 
-" solarized options 
-let g:solarized_termcolors = 256 
-let g:solarized_visibility = "high" 
-let g:solarized_contrast = "high" 
+" solarized options
+" for netbook:
+se t_Co=256
+let g:solarized_termcolors = 256
+let g:solarized_visibility = "high"
+let g:solarized_contrast = "high"
 syntax enable
 set background=dark
-colorscheme solarized 
+colorscheme solarized
 
 set guifont=Inconsolata:h16
 
-set number "shows line numbers
+filetype plugin on
+set ofu=syntaxcomplete#Complete
 
+set number "shows line numbers
 set ruler "shows cursor location
 
 set wildmenu "in cmds and maybe more, displays possible autocompletions if tab hit
@@ -83,6 +100,17 @@ set ls=2
 set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
 
+" for some weird reason, backspace was only working to insert instance
+set backspace=2
+
+"" Vertical Indent options
+let g:indent_guides_start_level=1
+let g:indent_guides_guide_level=2
+let g:indent_guides_enable_on_vim_startup = 0
+set ts=2 sw=2
+hi IndentGuidesOdd  ctermbg=grey
+hi IndentGuidesEven ctermbg=darkgrey
+
 "Mappings.__________________________________________________
 
 "maps colon to just a press of semicolon, for easier cmd instigation
@@ -97,7 +125,7 @@ nmap ] }
 "map ctrl-l to delete the previous word in insert mode, finally got this on 2012_02_17!!!
 imap <c-l> <c-w>
 
-"map $, go to beginning of line, to 9, bc that binding is full retard 
+"map $, go to beginning of line, to 9, bc that binding is full retard
 map 9 $
 
 "map space to insert just one character
@@ -145,16 +173,18 @@ au BufEnter *.tex nmap <leader>p :!pdflatex %<CR>
 "inserts code header
 " au BufEnter *.m 
 nmap <leader>intro i%{<CR>
-        \<C-i> File: <C-i><C-i><C-i><C-i><C-i>x<CR>
-        \Author: <C-i><C-i><C-i><C-i>Austin Soplata, of austin.soplata@gmail.com <CR>
-        \Last Modified:<C-i><C-i><C-i>x <CR>
-	\Project: <C-i><C-i><C-i><C-i>x <CR>
-        \Known Dependencies:<C-i>x <CR>
-        \Inputs:<C-i><C-i><C-i><C-i>x <CR>
-        \Outputs:<C-i><C-i><C-i><C-i>x <CR>
-        \Description:<C-i><C-i><C-i>x <CR>
-        \Todo:<C-i><C-i><C-i><C-i><C-i>x <CR>
-        \<C-h><C-h>%}<CR><Esc>xx
+        \     File:                  x<CR>
+        \Author:                Austin Soplata, of austin.soplata@gmail.com<CR>
+        \Last Modified:         x<CR>
+        \Project:               x<CR>
+        \Known Dependencies:    x<CR>
+        \Inputs:                x<CR>
+        \Outputs:               x<CR>
+        \Description:           x<CR>
+        \Todo:                  x<CR>
+        \<C-h><C-h><C-h>%}<CR><Esc>xxx
+
+"maybe make similar but for funcs in same file? so I/O, deps, what else?
 
 " :put =expand('%:t')
 
@@ -164,4 +194,5 @@ nmap <silent> ,/ :nohlsearch<CR>
 " experimental:
 au BufEnter *.m imap plot, plot( <Right><CR> xlabel(' '<Right><CR>) ylabel(' '<Right><CR><Up><Up><Right><Right><Right><Right>
 
-
+"maps the usual autocomplete to tab
+"imap <tab> <C-p>

@@ -1,7 +1,7 @@
 ###
 #     File:                  x
 #     Author:                Austin Soplata, of austin.soplata@gmail.com 
-#     Last Modified:         Wed Jul 04 12:14 AM 2012 EDT
+#     Last Modified:         Thu Jul 05 10:30 PM 2012 EDT
 #     Project:               x 
 #     Known Dependencies:    x 
 #     Inputs:                x 
@@ -15,8 +15,8 @@
 
 # VIMRUNTIME="/usr/share/vim/vim"
 
-alias tmux="TERM=screen-256color-bce tmux"
-TERM="xterm-256color"
+# alias tmux="TERM=screen-256color-bce tmux"
+# TERM="xterm-256color"
 
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 alias firefox="/Applications/Firefox.app/Contents/MacOS/firefox-bin"
@@ -41,3 +41,8 @@ export PS1="$GRAY[$CYAN\T $WHITE lulz$BLUE@$WHITE\u:$GREEN\W$GRAY] $RED$ $WHITE"
 prompt
 
 alias pgrep="ps aux | grep grep -v | grep "
+
+#so it spits out checksums in an identical format to linux' md5sum
+alias md5="md5 -r"
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

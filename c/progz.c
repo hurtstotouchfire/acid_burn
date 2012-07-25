@@ -18,6 +18,7 @@ int main(void) {
 //printf("Great lulz have been located"); 
 // }
 
+
 char date[] = "20100220",*ptr = &date[0];
 char year[5] = "YYYY";
 char month[3] = "MM";
@@ -38,10 +39,14 @@ day[i]= *(ptr+7+i);
 
 printf("The year is %s, the month is %s, the day is %s.", year, month, day);
 
+char herp
+  int derp
+    for 
+
 char bewbz[7] = "abcdef", *ptr2 =&bewbz[0];
-int j = 0;
-for (j=0; j<8; j+=2) {
-bewbz[j]=*(ptr+j);
+  int j = 0;
+      for (j=0; j<8; j+=2) {
+    bewbz[j]=*(ptr+j);
 }
 printf("%s", bewbz);
 
