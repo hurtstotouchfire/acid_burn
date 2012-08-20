@@ -1,7 +1,7 @@
 ###
 #     File:                  x
 #     Author:                Austin Soplata, of austin.soplata@gmail.com 
-#     Last Modified:         Thu Jul 05 10:30 PM 2012 EDT
+#     Last Modified:         Wed Aug 08 03:37 PM 2012 EDT
 #     Project:               x 
 #     Known Dependencies:    x 
 #     Inputs:                x 
@@ -14,6 +14,8 @@
 # '99:99:99...'
 
 # VIMRUNTIME="/usr/share/vim/vim"
+# 'printenv' prints all environmental varbls
+# 'set | less' will throw all SHELL varbls into less
 
 # alias tmux="TERM=screen-256color-bce tmux"
 # TERM="xterm-256color"
