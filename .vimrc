@@ -1,19 +1,19 @@
 """
     "'File:                   .vimrc
-    "' Author:                Austin Soplata, of austin.soplata@gmail.com 
-    "' Last Modified:         Wed Jul 25 06:18 PM 2012 EDT
+    "' Author:                Austin Soplata, of austin.soplata@gmail.com
+    "' Last Modified:         Tue Sep 25 07:10 PM 2012 EDT
     "' Known Dependencies:    lastchange.vim in ~/.vim/plugin
-    "' Inputs:                x 
-    "' Outputs:               x 
-    "' Description:           Not nearly as long as his...ego. 
-    "' Todo:                  x 
+    "' Inputs:                x
+    "' Outputs:               x
+    "' Description:           Not nearly as long as his...ego.
+    "' Todo:                  Never completed.
 """
 
 
-""" tips? 
+"Tips._________________________________________________________________________
 " ';66,81s/color/texture/g' replaces all instances of color from lines 66-81 with texture, awesome
 
-"" even better: incremental replace! use 
+"" even better: incremental replace! use
 " ':let i=1 | 38,46g/foo/s//\="bar_".i/ | let i=i+1'
 " to replace 'foo' in lines 38 to 46 with 'bar_1' on line 38, then 'bar_2' on
 " line 39, etc.! Faaaantastic.
@@ -37,39 +37,34 @@
 " ctrl-f does regex ready search func
 " can use mouse wherever, even in vim to move
 " cmd+` displays/hides iterm2
+"
+" Evervim usage
+" do ':EvervimNotebookList'
+"
+" ctrl-a increments a number, and ctrl-x decrements!
+" omfg * searches for the word you're in
+" :abbr pn penguin
+" :abbr MS Mandrake Software
+" define file that has nothing but abbrs?
 
+"General Settings._____________________________________________________________
 syntax on "Obvious.
 "let $VIM ='~/Dropbox/progz/acid_burn/.vim/'
 let $VIM ='~/.vim/'
+let $Tlist_Ctags_Cmd='/usr/local/bin/ctags'
 
-"for pathogen plugin help, can easily access plugins at ~/.vim/bundle at runtime, whatever that means.
-call pathogen#infect()
-call pathogen#helptags()
-
-" solarized options
-" for netbook:
-se t_Co=256
-let g:solarized_termcolors = 256
-let g:solarized_visibility = "high"
-let g:solarized_contrast = "high"
-syntax enable
-set background=dark
-colorscheme solarized
-
-set guifont=Inconsolata:h16
-
-filetype plugin on
-set ofu=syntaxcomplete#Complete
+set guifont=Source_Code_Pro_Light:h14
 
 set number "shows line numbers
 set ruler "shows cursor location
 
-set wildmenu "in cmds and maybe more, displays possible autocompletions if tab hit
-set wildmode=longest,list "tab-autocomplete to longest common string, and display list of ALL possibilites
+" Wildmode inactivated because possibly interferes with 
+
+" set wildmenu "in cmds and maybe more, displays possible autocompletions if tab hit
+" set wildmode=longest,list "tab-autocomplete to longest common string, and display list of ALL possibilites
 
 set incsearch "highlights the immediate next instance of a search string via /
-
-set hlsearch "highlights all future instances of a search string with 
+set hlsearch "highlights all future instances of a search string with
 
 set ignorecase "removes case reqs in search...
 set smartcase "unless non-lowercase letters searched for
@@ -91,8 +86,7 @@ au BufEnter *.html set textwidth=0 "so doesn't apply to html files
 
 set noswapfile
 
-" shows a basic line w/ the current buffer's file, in addition to forcing the
-" modeline
+" shows basic line w/ current buffer's file, in addition to forcing modeline
 set modeline
 set ls=2
 
@@ -103,15 +97,30 @@ set listchars=tab:>.,trail:.,extends:#,nbsp:.
 " for some weird reason, backspace was only working to insert instance
 set backspace=2
 
-"" Vertical Indent options
-let g:indent_guides_start_level=1
-let g:indent_guides_guide_level=2
-let g:indent_guides_enable_on_vim_startup = 0
-set ts=2 sw=2
-hi IndentGuidesOdd  ctermbg=grey
-hi IndentGuidesEven ctermbg=darkgrey
 
-"Mappings.__________________________________________________
+" Pathogen install.___________________________________
+"for pathogen plugin help, can easily access plugins at ~/.vim/bundle at runtime, whatever that means.
+"if get new plugins, can just throw into /bundle and they magically work?
+call pathogen#infect()
+call pathogen#helptags()
+
+" Solarized theme install.____________________________________________________
+se t_Co=256
+let g:solarized_termcolors = 256
+let g:solarized_visibility = "high"
+let g:solarized_contrast = "high"
+syntax enable
+set background=dark
+colorscheme solarized
+
+
+" General Plugin Settings (appear to must go after Pathogen).__________________
+filetype plugin on
+set ofu=syntaxcomplete#Complete
+set nocompatible
+
+
+"Non-plugin Mappings._________________________________________________________
 
 "maps colon to just a press of semicolon, for easier cmd instigation
 nmap ; :
@@ -145,26 +154,19 @@ au BufEnter *.html imap < <lt>><Left>
 " For m-files, when type 'for,', automagically make an 'end' on the line below
 au BufEnter *.m imap for, for<CR><CR>end<Esc>kkA
 au BufEnter *.m imap if, if<CR><CR>end<Esc>kkA
-
-nmap <silent> <c-n> :NERDTreeToggle<CR>
-let NERDTreeShowHidden=1
-
-"from http://nvie.com/posts/how-i-boosted-my-vim/
+"
 "allows comma to act as the first key in chain command eg Emacs' Meta-x
 let mapleader=","
 ""thus, allows these to use ",ev/,sv" to edit/reload vimrc file.
-""Use this to let your imagination run wild.
+""Go crzy with this!
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
-
-"nonfunctional, since requires ruby and can't get it to work in MacVim
-nmap <leader>t :CommandT<CR>
-"reset command-t in case of new file with :CommandTFlush
 
 "opens file, eg new tab in default browser, for current file
 nmap <leader>o :!open % &<CR><CR>
 "need full path, not just %'s name of file
 nmap <leader>d :lcd %:p:h<CR>
+
 "for .tex, changed path of buffer to that of current file and prints it
 " au BufEnter *.tex 
 " nmap <leader>p :lcd %:p:h<CR> :!pdflatex %<CR>
@@ -191,8 +193,49 @@ nmap <leader>intro i%{<CR>
 " clear search string
 nmap <silent> ,/ :nohlsearch<CR>
 
-" experimental:
+" Experimental zone:
 au BufEnter *.m imap plot, plot( <Right><CR> xlabel(' '<Right><CR>) ylabel(' '<Right><CR><Up><Up><Right><Right><Right><Right>
 
-"maps the usual autocomplete to tab
-"imap <tab> <C-p>
+
+"Plugin-related Information and Mappings._____________________________________
+
+"" Nerdtree
+nmap <silent> <c-n> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
+" can adjust NERDTreeWinSize ?
+
+"" Taglist
+nmap <C-g> :TlistToggle<CR>
+
+"" Command-T
+nmap <leader>t :CommandT<CR>
+"reset command-t in case of new file with :CommandTFlush
+
+"" Vertical Indent options
+let g:indent_guides_start_level=1
+let g:indent_guides_guide_level=2
+let g:indent_guides_enable_on_vim_startup = 1
+set ts=2 sw=2
+set background=dark
+hi IndentGuidesOdd  ctermbg=black
+hi IndentGuidesEven ctermbg=darkgrey
+
+"" Configure tags - add additional tags here or comment out not-used ones
+set tags+=~/.vim/tags/cpp
+" build tags of your own project with Ctrl-F12
+map <C-F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q.<CR>
+" for xptemplate, the c++ snippets, type e.g. 'for' then <C-\> FORWARD slash
+
+"" For Easymotion, default is <leader><leader>w which is a whole nother level!
+" let g:EasyMotion_leader_key = '<leader>w'
+
+"" clang_complete
+let g:clang_complete_copen=1 "auto opens quickfix window on error
+let g:clang_auto_select=1 "auto selects first option
+let g:clang_complete_auto=1 "auto complete?
+
+
+"C++ Mappings and stuffz_____________
+"
+" assuming pwd is local, automagically compiles and runs prog in this window
+nmap <leader>z :!clang++ % ; ./a.out

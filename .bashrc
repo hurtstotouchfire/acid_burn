@@ -1,13 +1,13 @@
 ###
 #     File:                  x
-#     Author:                Austin Soplata, of austin.soplata@gmail.com 
-#     Last Modified:         Wed Aug 08 03:37 PM 2012 EDT
-#     Project:               x 
-#     Known Dependencies:    x 
-#     Inputs:                x 
-#     Outputs:               x 
-#     Description:           x 
-#     Todo:                  x 
+#     Author:                Austin Soplata, of austin.soplata@gmail.com
+#     Last Modified:         Tue Sep 25 07:23 PM 2012 EDT
+#     Project:               x
+#     Known Dependencies:    x
+#     Inputs:                x
+#     Outputs:               x
+#     Description:           x
+#     Todo:                  x
 ###
 
 # ssh-keygen -l -f /etc/ssh/ssh_host_key.pub, lists public key thing, e.g.
@@ -22,6 +22,10 @@
 
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 alias firefox="/Applications/Firefox.app/Contents/MacOS/firefox-bin"
+alias matlab="/Applications/MATLAB_R2011b.app/bin/matlab"
+alias sudo="sudo "
+alias ctags="/usr/local/bin/ctags"
+alias port="/opt/local/bin/port"
 
 alias "ls"="ls -G"
 alias ll="ls -lG"
@@ -39,7 +43,7 @@ function prompt
     #export PS1="$GRAY[$GREEN\u$CYAN@$BLUE\h $CYAN\W$GRAY]$ "
 #export PS1="[\T lulz@\u:\w] $ "
 export PS1="$GRAY[$CYAN\T $WHITE lulz$BLUE@$WHITE\u:$GREEN\W$GRAY] $RED$ $WHITE"
-                        }
+}
 prompt
 
 alias pgrep="ps aux | grep grep -v | grep "
@@ -48,3 +52,4 @@ alias pgrep="ps aux | grep grep -v | grep "
 alias md5="md5 -r"
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=$PATH:~/clang_compiler_stuff/build/Debug+Asserts/bin
