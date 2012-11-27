@@ -1,7 +1,7 @@
 ###
 #     File:                  x
 #     Author:                Austin Soplata, of austin.soplata@gmail.com
-#     Last Modified:         Tue Sep 25 07:23 PM 2012 EDT
+#     Last Modified:         Sun Oct 07 08:22 PM 2012 EDT
 #     Project:               x
 #     Known Dependencies:    x
 #     Inputs:                x
@@ -26,6 +26,7 @@ alias matlab="/Applications/MATLAB_R2011b.app/bin/matlab"
 alias sudo="sudo "
 alias ctags="/usr/local/bin/ctags"
 alias port="/opt/local/bin/port"
+alias c="clang++ "
 
 alias "ls"="ls -G"
 alias ll="ls -lG"
@@ -53,3 +54,7 @@ alias md5="md5 -r"
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:~/clang_compiler_stuff/build/Debug+Asserts/bin
+
+# needed for Timing app to track stuff?
+PROMPT_TITLE='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/~}\007"'
+export PROMPT_COMMAND="${PROMPT_COMMAND} ${PROMPT_TITLE}; "
