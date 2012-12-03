@@ -1,7 +1,7 @@
 """
     "'File:                   .vimrc
     "' Author:                Austin Soplata, of austin.soplata@gmail.com
-    "' Last Modified:         Fri Nov 23 06:51 PM 2012 EST
+    "' Last Modified:         Fri Nov 30 04:56 PM 2012 EST
     "' Known Dependencies:    lastchange.vim in ~/.vim/plugin
     "' Inputs:                x
     "' Outputs:               x
@@ -57,6 +57,7 @@ let $VIM ='~/Dropbox/progz/acid_burn/.vim/'
 let $Tlist_Ctags_Cmd='/usr/local/bin/ctags'
 
 set guifont=Source_Code_Pro_Light:h14
+"let g:Powerline_symbols = 'fancy'
 
 set number "shows line numbers
 set ruler "shows cursor location
@@ -205,7 +206,7 @@ nmap = :w<CR>
 "
 " assuming pwd is local, automagically compiles and runs prog in this window
 " nmap <localleader>z :!clang++ -o %.out % ; ./%.out
-autocmd FileType cpp nnoremap <buffer> <localleader>z :!clang++ -stdlib=libc++ -std=c++11 -o %.out % ; ./%.out
+autocmd FileType cpp nnoremap <buffer> <localleader>z :!clang++ -stdlib=libc++ -std=c++11 -g -o %.out % ; ./%.out
 autocmd FileType cpp nnoremap <buffer> <localleader>c I// <esc>$
 autocmd FileType cpp nnoremap <buffer> <localleader>dc I<del><del><esc>$
 autocmd FileType matlab nnoremap <buffer> <localleader>c I% <esc>$

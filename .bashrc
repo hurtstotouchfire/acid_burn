@@ -1,7 +1,7 @@
 ###
 #     File:                  x
 #     Author:                Austin Soplata, of austin.soplata@gmail.com
-#     Last Modified:         Sun Oct 07 08:22 PM 2012 EDT
+#     Last Modified:         Fri Nov 30 03:11 PM 2012 EST
 #     Project:               x
 #     Known Dependencies:    x
 #     Inputs:                x
@@ -47,7 +47,10 @@ export PS1="$GRAY[$CYAN\T $WHITE lulz$BLUE@$WHITE\u:$GREEN\W$GRAY] $RED$ $WHITE"
 }
 prompt
 
+alias grep="grep --color=auto"
 alias pgrep="ps aux | grep grep -v | grep "
+
+alias tmuxre="tmux new-session -t Spcejt9k || tmux new-session -s Spcejt9k"
 
 #so it spits out checksums in an identical format to linux' md5sum
 alias md5="md5 -r"
