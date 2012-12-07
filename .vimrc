@@ -1,7 +1,7 @@
 """
     "'File:                   .vimrc
     "' Author:                Austin Soplata, of austin.soplata@gmail.com
-    "' Last Modified:         Fri Nov 30 04:56 PM 2012 EST
+    "' Last Modified:         Thu Dec 06 10:51 PM 2012 EST
     "' Known Dependencies:    lastchange.vim in ~/.vim/plugin
     "' Inputs:                x
     "' Outputs:               x
@@ -104,10 +104,10 @@ set backspace=2
 "stops that super annoying "Hit Enter" after every :w
 set shortmess+=O
 
-" set relativenumber
-
 " %y is the filetype
 " set statusline=%.80f\ -\ FileType:\ %y\ %=\ Line:\ %-4l/%-4L
+
+set clipboard=unnamed
 
 " Pathogen install.___________________________________________________________
 "for pathogen plugin help, can easily access plugins at ~/.vim/bundle at runtime, whatever that means.
@@ -182,6 +182,8 @@ nmap <leader>o :!open % &<CR><CR>
 nmap <leader>d :lcd %:p:h<CR>
 nmap <leader>h :lcd ~/Dropbox<CR>
 nmap <leader>s :mksession! ~/Dropbox/Session.vim<CR>
+nmap <leader>i I$ <esc>$l
+nmap <leader>di I<del><del><esc>$
 
 "for .tex, changed path of buffer to that of current file and prints it
 " au BufEnter *.tex
