@@ -1,7 +1,7 @@
 """
     "'File:                   .vimrc
     "' Author:                Austin Soplata, of austin.soplata@gmail.com
-    "' Last Modified:         Thu Dec 06 10:51 PM 2012 EST
+    "' Last Modified:         Thu Dec 20 09:37 AM 2012 PST
     "' Known Dependencies:    lastchange.vim in ~/.vim/plugin
     "' Inputs:                x
     "' Outputs:               x
@@ -208,14 +208,16 @@ nmap = :w<CR>
 "
 " assuming pwd is local, automagically compiles and runs prog in this window
 " nmap <localleader>z :!clang++ -o %.out % ; ./%.out
-autocmd FileType cpp nnoremap <buffer> <localleader>z :!clang++ -stdlib=libc++ -std=c++11 -g -o %.out % ; ./%.out
+autocmd FileType cpp nnoremap <buffer> <localleader>z :!clang++ -stdlib=libc++ -std=c++11 -o %.out % ; ./%.out
 autocmd FileType cpp nnoremap <buffer> <localleader>c I// <esc>$
-autocmd FileType cpp nnoremap <buffer> <localleader>dc I<del><del><esc>$
+autocmd FileType cpp nnoremap <buffer> <localleader>dc I<del><del><del><esc>$
 autocmd FileType matlab nnoremap <buffer> <localleader>c I% <esc>$
 autocmd FileType matlab nnoremap <buffer> <localleader>dc I<del><del><esc>$
 autocmd FileType tex nnoremap <buffer> <localleader>c I% <esc>$
-autocmd FileType tex nnoremap <buffer> <localleader>dc I<del><esc>$
+autocmd FileType tex nnoremap <buffer> <localleader>dc I<del><del><esc>$
 autocmd FileType tex nnoremap <buffer> <localleader>p :!pdflatex %<CR>
+autocmd FileType ode nnoremap <buffer> <localleader>c I# <esc>$
+autocmd FileType ode nnoremap <buffer> <localleader>dc I<del><del><esc>$
 
 "Plugin-related Information and Mappings._____________________________________
 
