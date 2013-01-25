@@ -1,7 +1,7 @@
 ###
 #     File:                  x
 #     Author:                Austin Soplata, of austin.soplata@gmail.com
-#     Last Modified:         Thu Jan 24 11:01 PM 2013 EST
+#     Last Modified:         Thu Jan 24 11:46 PM 2013 EST
 #     Project:               x
 #     Known Dependencies:    x
 #     Inputs:                x
@@ -44,6 +44,7 @@ alias pgrep="ps aux | grep grep -v | grep "
 alias md5="md5 -r"
 
 alias whatisip="curl -s http://ifconfig.me"
+alias wip="curl -s http://ifconfig.me"
 
 # Pretty stuff
 function prompt
