@@ -1,7 +1,7 @@
 ###
 #     File:                  x
 #     Author:                Austin Soplata, of austin.soplata@gmail.com
-#     Last Modified:         Fri Nov 30 03:11 PM 2012 EST
+#     Last Modified:         Sun Jan 20 03:57 PM 2013 EST
 #     Project:               x
 #     Known Dependencies:    x
 #     Inputs:                x
@@ -27,11 +27,19 @@ alias sudo="sudo "
 alias ctags="/usr/local/bin/ctags"
 alias port="/opt/local/bin/port"
 alias c="clang++ "
+alias tmuxre="tmux new-session -t Spcejt9k || tmux new-session -s Spcejt9k"
+alias p3="python3"
 
 alias "ls"="ls -G"
 alias ll="ls -lG"
 alias la="ls -aG"
 alias lal="ls -laG"
+
+alias grep="grep --color=auto"
+alias pgrep="ps aux | grep grep -v | grep "
+
+# so it spits out checksums in an identical format to linux' md5sum
+alias md5="md5 -r"
 
 function prompt
 {
@@ -46,14 +54,6 @@ function prompt
 export PS1="$GRAY[$CYAN\T $WHITE lulz$BLUE@$WHITE\u:$GREEN\W$GRAY] $RED$ $WHITE"
 }
 prompt
-
-alias grep="grep --color=auto"
-alias pgrep="ps aux | grep grep -v | grep "
-
-alias tmuxre="tmux new-session -t Spcejt9k || tmux new-session -s Spcejt9k"
-
-#so it spits out checksums in an identical format to linux' md5sum
-alias md5="md5 -r"
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:~/clang_compiler_stuff/build/Debug+Asserts/bin

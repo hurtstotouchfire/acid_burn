@@ -1,7 +1,7 @@
 """
     "'File:                   .vimrc
     "' Author:                Austin Soplata, of austin.soplata@gmail.com
-    "' Last Modified:         Thu Dec 20 09:37 AM 2012 PST
+    "' Last Modified:         Sun Jan 20 04:09 PM 2013 EST
     "' Known Dependencies:    lastchange.vim in ~/.vim/plugin
     "' Inputs:                x
     "' Outputs:               x
@@ -156,10 +156,11 @@ vmap <C-c> y:call system("pbcopy", getreg("\""))<CR>
 nmap <C-k> :call setreg("\"",system("pbpaste"))<CR>p
 
 " In insert mode, autocloses parentheses, brackets, braces, single and dub q's
-imap ( ()<Left>
-imap [ []<Left>
-imap { {}<Left>
+inoremap ( ()<Left>
+inoremap [ []<Left>
+inoremap { {}<Left>
 au BufEnter *.html imap < <lt>><Left>
+au BufEnter *.tex inoremap $ $$<Left>
 " omfg...could not figure out the same html thing in cpp and ahve it work
 " au BufEnter *.cpp imap <lt> <lt><lt><Right>
 
@@ -208,7 +209,7 @@ nmap = :w<CR>
 "
 " assuming pwd is local, automagically compiles and runs prog in this window
 " nmap <localleader>z :!clang++ -o %.out % ; ./%.out
-autocmd FileType cpp nnoremap <buffer> <localleader>z :!clang++ -stdlib=libc++ -std=c++11 -o %.out % ; ./%.out
+autocmd FileType cpp nnoremap <buffer> <localleader>p :!clang++ -stdlib=libc++ -std=c++11 -o %.out % ; ./%.out
 autocmd FileType cpp nnoremap <buffer> <localleader>c I// <esc>$
 autocmd FileType cpp nnoremap <buffer> <localleader>dc I<del><del><del><esc>$
 autocmd FileType matlab nnoremap <buffer> <localleader>c I% <esc>$
@@ -218,6 +219,9 @@ autocmd FileType tex nnoremap <buffer> <localleader>dc I<del><del><esc>$
 autocmd FileType tex nnoremap <buffer> <localleader>p :!pdflatex %<CR>
 autocmd FileType ode nnoremap <buffer> <localleader>c I# <esc>$
 autocmd FileType ode nnoremap <buffer> <localleader>dc I<del><del><esc>$
+autocmd FileType python nnoremap <buffer> <localleader>p :!python3 %
+autocmd FileType python nnoremap <buffer> <localleader>c I# <esc>$
+autocmd FileType python nnoremap <buffer> <localleader>dc I<del><del><esc>$
 
 "Plugin-related Information and Mappings._____________________________________
 
