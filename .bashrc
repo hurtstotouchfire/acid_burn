@@ -1,7 +1,7 @@
 ###
 #     File:                  x
 #     Author:                Austin Soplata, of austin.soplata@gmail.com
-#     Last Modified:         Sun Jan 20 03:57 PM 2013 EST
+#     Last Modified:         Thu Jan 24 11:01 PM 2013 EST
 #     Project:               x
 #     Known Dependencies:    x
 #     Inputs:                x
@@ -20,6 +20,7 @@
 # alias tmux="TERM=screen-256color-bce tmux"
 # TERM="xterm-256color"
 
+# Program aliases/shortcuts
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 alias firefox="/Applications/Firefox.app/Contents/MacOS/firefox-bin"
 alias matlab="/Applications/MATLAB_R2011b.app/bin/matlab"
@@ -30,6 +31,7 @@ alias c="clang++ "
 alias tmuxre="tmux new-session -t Spcejt9k || tmux new-session -s Spcejt9k"
 alias p3="python3"
 
+# Bash aliases/shortcuts
 alias "ls"="ls -G"
 alias ll="ls -lG"
 alias la="ls -aG"
@@ -41,6 +43,9 @@ alias pgrep="ps aux | grep grep -v | grep "
 # so it spits out checksums in an identical format to linux' md5sum
 alias md5="md5 -r"
 
+alias whatisip="curl -s http://ifconfig.me"
+
+# Pretty stuff
 function prompt
 {
     local WHITE="\[\033[1;37m\]"
