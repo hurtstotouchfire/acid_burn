@@ -1,7 +1,7 @@
 ###
 #     File:                  x
 #     Author:                Austin Soplata, of austin.soplata@gmail.com
-#     Last Modified:         Thu Jan 24 11:46 PM 2013 EST
+#     Last Modified:         Sun Jan 27 02:29 AM 2013 EST
 #     Project:               x
 #     Known Dependencies:    x
 #     Inputs:                x
@@ -30,6 +30,7 @@ alias port="/opt/local/bin/port"
 alias c="clang++ "
 alias tmuxre="tmux new-session -t Spcejt9k || tmux new-session -s Spcejt9k"
 alias p3="python3"
+alias batt="upower -i /org/freedesktop/UPower/devices/battery_BAT0"
 
 # Bash aliases/shortcuts
 alias "ls"="ls -G"
