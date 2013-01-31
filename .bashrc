@@ -1,7 +1,7 @@
 ###
 #     File:                  x
 #     Author:                Austin Soplata, of austin.soplata@gmail.com
-#     Last Modified:         Thu Jan 31 01:56 AM 2013 EST
+#     Last Modified:         Thu Jan 31 02:15 AM 2013 EST
 #     Project:               x
 #     Known Dependencies:    x
 #     Inputs:                x
@@ -28,31 +28,6 @@
 # alias tmux="TERM=screen-256color-bce tmux"
 # TERM="xterm-256color"
 
-# Program aliases/shortcuts
-alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
-alias firefox="/Applications/Firefox.app/Contents/MacOS/firefox-bin"
-alias matlab="/Applications/MATLAB_R2011b.app/bin/matlab"
-alias sudo="sudo "
-alias ctags="/usr/local/bin/ctags"
-alias port="/opt/local/bin/port"
-alias c="clang++ "
-alias tmuxre="tmux new-session -t Spcejt9k || tmux new-session -s Spcejt9k"
-alias p3="python3"
-alias batt="upower -i /org/freedesktop/UPower/devices/battery_BAT0"
-
-# Bash aliases/shortcuts
-alias "ls"="ls -G"
-alias ll="ls -laG"
-alias la="ls -aG"
-
-alias grep="grep --color=auto"
-alias pgrep="ps aux | grep grep -v | grep "
-
-# so it spits out checksums in an identical format to linux' md5sum
-alias md5="md5 -r"
-
-alias whatisip="curl -s http://ifconfig.me"
-alias wip="curl -s http://ifconfig.me"
 
 # Pretty stuff
 function prompt
@@ -84,13 +59,44 @@ export PROMPT_COMMAND="${PROMPT_COMMAND} ${PROMPT_TITLE}; "
 
 # vim: set textwidth=0 :
 
-export alpha=~/Dropbox/rsh/kopell/project_alpha
-export progz=~/Dropbox/progz/acid_burn
-export cpp=~/Dropbox/progz/src/cpp/cpp_primer
+
+# Program aliases/shortcuts
+alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+alias firefox="/Applications/Firefox.app/Contents/MacOS/firefox-bin"
+alias matlab="/Applications/MATLAB_R2011b.app/bin/matlab"
+alias sudo="sudo "
+alias ctags="/usr/local/bin/ctags"
+alias port="/opt/local/bin/port"
+alias c="clang++ "
+alias tmuxre="tmux new-session -t Spcejt9k || tmux new-session -s Spcejt9k"
+alias p3="python3"
+alias batt="upower -i /org/freedesktop/UPower/devices/battery_BAT0"
+
+# Bash aliases/shortcuts
+alias "ls"="ls -G"
+alias ll="ls -laG"
+alias la="ls -aG"
+
+alias grep="grep --color=auto"
+alias pgrep="ps aux | grep grep -v | grep "
+
 alias ..="cd .."
 alias sb="source ~/.bashrc"
 alias svim="sudo vim "
-export b=~/.bashrc
+
+# so it spits out checksums in an identical format to linux' md5sum
+alias md5="md5 -r"
+
+alias whatisip="curl -s http://ifconfig.me"
+alias wip="curl -s http://ifconfig.me"
+
+# git
 alias gcam="git commit -am "
 alias gca="git commit -a "
 alias gpo="git push origin "
+
+# Variables, including location ones
+export alpha=~/Dropbox/rsh/kopell/project_alpha
+export progz=~/Dropbox/progz/acid_burn
+export cpp=~/Dropbox/progz/src/cpp/cpp_primer
+export b=~/.bashrc
