@@ -1,7 +1,7 @@
 ###
 #     File:                  x
 #     Author:                Austin Soplata, of austin.soplata@gmail.com
-#     Last Modified:         Wed Jan 30 08:47 PM 2013 EST
+#     Last Modified:         Thu Jan 31 01:56 AM 2013 EST
 #     Project:               x
 #     Known Dependencies:    x
 #     Inputs:                x
@@ -42,9 +42,8 @@ alias batt="upower -i /org/freedesktop/UPower/devices/battery_BAT0"
 
 # Bash aliases/shortcuts
 alias "ls"="ls -G"
-alias ll="ls -lG"
+alias ll="ls -laG"
 alias la="ls -aG"
-alias lal="ls -laG"
 
 alias grep="grep --color=auto"
 alias pgrep="ps aux | grep grep -v | grep "
@@ -84,3 +83,11 @@ PROMPT_TITLE='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/~}\007"'
 export PROMPT_COMMAND="${PROMPT_COMMAND} ${PROMPT_TITLE}; "
 
 # vim: set textwidth=0 :
+
+export alpha=~/Dropbox/rsh/kopell/project_alpha
+export progz=~/Dropbox/progz/acid_burn
+export cpp=~/Dropbox/progz/src/cpp/cpp_primer
+alias ..="cd .."
+alias sb="source ~/.bashrc"
+alias svim="sudo vim "
+export b=~/.bashrc

@@ -1,7 +1,7 @@
 """
     "'File:                   .vimrc
     "' Author:                Austin Soplata, of austin.soplata@gmail.com
-    "' Last Modified:         Tue Jan 29 12:18 PM 2013 EST
+    "' Last Modified:         Wed Jan 30 08:57 PM 2013 EST
     "' Known Dependencies:    lastchange.vim in ~/.vim/plugin
     "' Inputs:                x
     "' Outputs:               x
@@ -226,9 +226,9 @@ let g:indent_guides_guide_level=4
 let g:indent_guides_enable_on_vim_startup = 1
 set ts=4
 set sw=4
-set background=dark
-hi IndentGuidesOdd  ctermbg=black
-hi IndentGuidesEven ctermbg=darkgrey
+"set background=dark
+hi IndentGuidesOdd  ctermbg=darkgrey
+hi IndentGuidesEven ctermbg=blue
 
 "" Configure tags - add additional tags here or comment out not-used ones
 set tags+=~/.vim/tags/cpp
