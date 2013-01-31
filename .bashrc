@@ -1,7 +1,7 @@
 ###
 #     File:                  x
 #     Author:                Austin Soplata, of austin.soplata@gmail.com
-#     Last Modified:         Thu Jan 31 02:15 AM 2013 EST
+#     Last Modified:         Thu Jan 31 03:03 AM 2013 EST
 #     Project:               x
 #     Known Dependencies:    x
 #     Inputs:                x
@@ -20,16 +20,32 @@
 #
 # ssh-keygen -l -f /etc/ssh/ssh_host_key.pub, lists public key thing, e.g.
 # '99:99:99...'
-
+#
 # VIMRUNTIME="/usr/share/vim/vim"
 # 'printenv' prints all environmental varbls
 # 'set | less' will throw all SHELL varbls into less
-
+#
 # alias tmux="TERM=screen-256color-bce tmux"
 # TERM="xterm-256color"
 
+### Bash tricks #############################################################
+# '$ blah <<str' allows a 'here document', where it takes into the std input
+# '$ blah '         until the next 'str' at the beginning of a line
+# '$ str '
 
-# Pretty stuff
+## bash for loop control flow/scripting:
+# 'for ii in <bash words, like *.html>'
+# 'do'
+# '    <body of loop, like echo $ii, which will echo the filename in this case>'
+# 'done'
+# For this, the loop variable's value '$ii' seems to iterate through the actual
+# values, rather than, say a numerical index.
+
+## '$ (sleep 5; echo Tea is ready) &'
+
+
+
+### Prettification ###########################################################
 function prompt
 {
     local WHITE="\[\033[1;37m\]"
@@ -60,14 +76,14 @@ export PROMPT_COMMAND="${PROMPT_COMMAND} ${PROMPT_TITLE}; "
 # vim: set textwidth=0 :
 
 
-# Program aliases/shortcuts
+### Program aliases/shortcuts/variables ######################################
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 alias firefox="/Applications/Firefox.app/Contents/MacOS/firefox-bin"
 alias matlab="/Applications/MATLAB_R2011b.app/bin/matlab"
 alias sudo="sudo "
 alias ctags="/usr/local/bin/ctags"
 alias port="/opt/local/bin/port"
-alias c="clang++ "
+alias c="clang++ -stdlib=libc++ -std=c++11"
 alias tmuxre="tmux new-session -t Spcejt9k || tmux new-session -s Spcejt9k"
 alias p3="python3"
 alias batt="upower -i /org/freedesktop/UPower/devices/battery_BAT0"
@@ -76,6 +92,7 @@ alias batt="upower -i /org/freedesktop/UPower/devices/battery_BAT0"
 alias "ls"="ls -G"
 alias ll="ls -laG"
 alias la="ls -aG"
+alias rm="rm -i "
 
 alias grep="grep --color=auto"
 alias pgrep="ps aux | grep grep -v | grep "
@@ -83,6 +100,8 @@ alias pgrep="ps aux | grep grep -v | grep "
 alias ..="cd .."
 alias sb="source ~/.bashrc"
 alias svim="sudo vim "
+alias vs="vim -S ~/Dropbox/Session.vim"
+alias svs="sudo vim -S ~/Dropbox/Session.vim"
 
 # so it spits out checksums in an identical format to linux' md5sum
 alias md5="md5 -r"

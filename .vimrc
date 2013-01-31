@@ -1,7 +1,7 @@
 """
     "'File:                   .vimrc
     "' Author:                Austin Soplata, of austin.soplata@gmail.com
-    "' Last Modified:         Wed Jan 30 08:57 PM 2013 EST
+    "' Last Modified:         Thu Jan 31 02:29 AM 2013 EST
     "' Known Dependencies:    lastchange.vim in ~/.vim/plugin
     "' Inputs:                x
     "' Outputs:               x
