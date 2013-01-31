@@ -93,3 +93,4 @@ alias svim="sudo vim "
 export b=~/.bashrc
 alias gcam="git commit -am "
 alias gca="git commit -a "
+alias gpo="git push origin "
