@@ -91,3 +91,5 @@ alias ..="cd .."
 alias sb="source ~/.bashrc"
 alias svim="sudo vim "
 export b=~/.bashrc
+alias gcam="git commit -am "
+alias gca="git commit -a "
