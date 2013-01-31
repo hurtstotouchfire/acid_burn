@@ -1,7 +1,7 @@
 ###
 #     File:                  x
 #     Author:                Austin Soplata, of austin.soplata@gmail.com
-#     Last Modified:         Sun Jan 27 02:29 AM 2013 EST
+#     Last Modified:         Wed Jan 30 08:47 PM 2013 EST
 #     Project:               x
 #     Known Dependencies:    x
 #     Inputs:                x
@@ -10,6 +10,14 @@
 #     Todo:                  x
 ###
 
+# iTerm2 tricks
+# cmd-shift-h brings up paste history
+# can right-click paste or just middle button paste!
+# cmd-; brings up its autocomplete
+# ctrl-f does regex ready search func
+# can use mouse wherever, even in vim to move
+# cmd+` displays/hides iterm2
+#
 # ssh-keygen -l -f /etc/ssh/ssh_host_key.pub, lists public key thing, e.g.
 # '99:99:99...'
 
@@ -55,16 +63,24 @@ function prompt
     local CYAN="\[\033[01;36m\]"
     local GRAY="\[\033[0;37m\]"
     local BLUE="\[\033[01;34m\]"
+    local DARKBLUE="\[\033[00;34m\]"
     local RED="\[\033[01;31m\]"
-    #export PS1="$GRAY[$GREEN\u$CYAN@$BLUE\h $CYAN\W$GRAY]$ "
-#export PS1="[\T lulz@\u:\w] $ "
-export PS1="$GRAY[$CYAN\T $WHITE lulz$BLUE@$WHITE\u:$GREEN\W$GRAY] $RED$ $WHITE"
+    local YELLOW="\[\033[01;33m\]"
+    local ORANGE="\[\033[00;33m\]"
+    local PURPLE="\[\033[00;35m\]"
+
+    # export PS1="$GRAY[$CYAN\T$BLUE|$CYAN\d$BLUE|$YELLOW\u$BLUE@$PURPLE\h$BLUE|$GREEN\W$GRAY] $RED$ $WHITE"
+    export PS1="\n$RED[$CYAN\T$BLUE | $CYAN\d$BLUE | $ORANGE\u$BLUE@$DARKBLUE\h$RED] $BLUE: \n    $RED[$PURPLE\w$RED]\n\n$RED\! | --\ $WHITE"
 }
 prompt
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:~/clang_compiler_stuff/build/Debug+Asserts/bin
 
+export TERM="screen-256color"
+
 # needed for Timing app to track stuff?
 PROMPT_TITLE='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/~}\007"'
 export PROMPT_COMMAND="${PROMPT_COMMAND} ${PROMPT_TITLE}; "
+
+# vim: set textwidth=0 :

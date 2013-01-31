@@ -1,7 +1,7 @@
 """
     "'File:                   .vimrc
     "' Author:                Austin Soplata, of austin.soplata@gmail.com
-    "' Last Modified:         Sun Jan 20 04:09 PM 2013 EST
+    "' Last Modified:         Tue Jan 29 12:18 PM 2013 EST
     "' Known Dependencies:    lastchange.vim in ~/.vim/plugin
     "' Inputs:                x
     "' Outputs:               x
@@ -17,28 +17,14 @@
 " to replace 'foo' in lines 38 to 46 with 'bar_1' on line 38, then 'bar_2' on
 " line 39, etc.! Faaaantastic.
 
-" ':source ~/.vimrc' to reset .vimrc live?
 " ':r !date' to insert the time from the Unix date utility
 
 " 'gqap' apparently reformats the paragraph text
 
 " for folding, 'zfap' folds the paragraph, 'zo' opens, 'zc' closes
 
-" 'qq' initiates recording, 'q' ends it, '.' repeats what was recorded
-
 " ctrl-o jumps cursor to prev posn, and ctrl-i the opposite, even b/w buffers!
-""" end of tips, beginning of real buzinez
 
-" iTerm2 tricks
-" cmd-shift-h brings up paste history
-" can right-click paste or just middle button paste!
-" cmd-; brings up its autocomplete
-" ctrl-f does regex ready search func
-" can use mouse wherever, even in vim to move
-" cmd+` displays/hides iterm2
-"
-" Evervim usage
-" do ':EvervimNotebookList'
 "
 " ctrl-a increments a number, and ctrl-x decrements!
 " omfg * searches for the word you're in
@@ -46,9 +32,11 @@
 " :abbr MS Mandrake Software
 " define file that has nothing but abbrs?
 "
-" xp to switch letters, ddp to switch lines
-"
 " in insert, ctrl-t adds an indent to the line?
+"
+" Evervim usage
+" do ':EvervimNotebookList'
+""" end of tips, beginning of real buzinez
 
 "General Settings._____________________________________________________________
 syntax on "Obvious.
@@ -61,8 +49,6 @@ set guifont=Source_Code_Pro_Light:h14
 
 set number "shows line numbers
 set ruler "shows cursor location
-
-" Wildmode inactivated because possibly interferes with 
 
 set wildmenu "in cmds and maybe more, displays possible autocompletions if tab hit
 set wildmode=longest,list "tab-autocomplete to longest common string, and display list of ALL possibilites
@@ -104,13 +90,10 @@ set backspace=2
 "stops that super annoying "Hit Enter" after every :w
 set shortmess+=O
 
-" %y is the filetype
-" set statusline=%.80f\ -\ FileType:\ %y\ %=\ Line:\ %-4l/%-4L
-
 set clipboard=unnamed
 
 " Pathogen install.___________________________________________________________
-"for pathogen plugin help, can easily access plugins at ~/.vim/bundle at runtime, whatever that means.
+"for pathogen plugin help, can easily access plugins at ~/.vim/bundle at runtime
 "if get new plugins, can just throw into /bundle and they magically work?
 call pathogen#infect()
 call pathogen#helptags()
@@ -138,28 +121,28 @@ nnoremap ; :
 "map curly brackets to regular brackets for no shift paragraph movement
 vmap [ {
 vmap ] }
-nmap [ {
-nmap ] }
+nnoremap [ {
+nnoremap ] }
 
 "map ctrl-l to delete the previous word in insert mode, finally got this on 2012_02_17!!!
 inoremap <c-l> <c-w>
 
 "map $, go to beginning of line, to 9, bc that binding is full retard
-map 9 $
+nnoremap 9 $
 
 "map space to insert just one character
-nmap <Space> i_<Esc>r
+nnoremap <Space> i_<Esc>r
 
 " On OSX, uses sys calls to copy to/from clipboard in insert mode
 vmap <C-c> y:call system("pbcopy", getreg("\""))<CR>
 " was mapped to <C-v>, but Visual Block is useful for commenting text blocks
-nmap <C-k> :call setreg("\"",system("pbpaste"))<CR>p
+nnoremap <C-k> :call setreg("\"",system("pbpaste"))<CR>p
 
 " In insert mode, autocloses parentheses, brackets, braces, single and dub q's
 inoremap ( ()<Left>
 inoremap [ []<Left>
 inoremap { {}<Left>
-au BufEnter *.html imap < <lt>><Left>
+au BufEnter *.html inoremap < <lt>><Left>
 au BufEnter *.tex inoremap $ $$<Left>
 " omfg...could not figure out the same html thing in cpp and ahve it work
 " au BufEnter *.cpp imap <lt> <lt><lt><Right>
