@@ -1,7 +1,7 @@
 """
     "'File:                   .vimrc
     "' Author:                Austin Soplata, of austin.soplata@gmail.com
-    "' Last Modified:         Thu Jan 31 02:29 AM 2013 EST
+    "' Last Modified:         Wed Feb 06 11:57 AM 2013 EST
     "' Known Dependencies:    lastchange.vim in ~/.vim/plugin
     "' Inputs:                x
     "' Outputs:               x
@@ -127,15 +127,17 @@ nnoremap ] }
 "map ctrl-l to delete the previous word in insert mode, finally got this on 2012_02_17!!!
 inoremap <c-l> <c-w>
 
-"map $, go to beginning of line, to 9, bc that binding is full retard
-nnoremap 9 $
+"map $, go to beginning of line, to 9, bc that binding is dumb
+" use map since can't d9 to delete to end of line w/o it, strangely still
+" enters '9' in insert mode though so no prob.
+map 9 $
 
 "map space to insert just one character
 nnoremap <Space> i_<Esc>r
 
 " On OSX, uses sys calls to copy to/from clipboard in insert mode
 vmap <C-c> y:call system("pbcopy", getreg("\""))<CR>
-" was mapped to <C-v>, but Visual Block is useful for commenting text blocks
+" was mapped to <C-v>, but need Visual Block
 nnoremap <C-k> :call setreg("\"",system("pbpaste"))<CR>p
 
 " In insert mode, autocloses parentheses, brackets, braces, single and dub q's
@@ -162,8 +164,9 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 "opens file, eg new tab in default browser, for current file
 nmap <leader>o :!open % &<CR><CR>
-"need full path, not just %'s name of file
-nmap <leader>d :lcd %:p:h<CR>
+" need full path, not just %'s name of file
+" note that that is a lowercase L
+nmap <leader>l :lcd %:p:h<CR>
 nmap <leader>h :lcd ~/Dropbox<CR>
 nmap <leader>s :mksession! ~/Dropbox/Session.vim<CR>
 nmap <leader>i I$ <esc>$l
@@ -205,6 +208,8 @@ autocmd FileType ode nnoremap <buffer> <localleader>dc I<del><del><esc>$
 autocmd FileType python nnoremap <buffer> <localleader>p :!python3 %
 autocmd FileType python nnoremap <buffer> <localleader>c I# <esc>$
 autocmd FileType python nnoremap <buffer> <localleader>dc I<del><del><esc>$
+autocmd FileType sh nnoremap <buffer> <localleader>c I# <esc>$
+autocmd FileType sh nnoremap <buffer> <localleader>dc I<del><del><esc>$
 
 "Plugin-related Information and Mappings._____________________________________
 
@@ -227,8 +232,8 @@ let g:indent_guides_enable_on_vim_startup = 1
 set ts=4
 set sw=4
 "set background=dark
-hi IndentGuidesOdd  ctermbg=darkgrey
-hi IndentGuidesEven ctermbg=blue
+hi IndentGuidesOdd  ctermbg=8
+hi IndentGuidesEven ctermbg=56
 
 "" Configure tags - add additional tags here or comment out not-used ones
 set tags+=~/.vim/tags/cpp
@@ -245,5 +250,15 @@ let g:clang_complete_copen=1 "auto opens quickfix window on error
 let g:clang_auto_select=1 "auto selects first option
 let g:clang_complete_auto=1 "auto complete?
 
+"" New Powerline as of 2012_02_02
+" python from powerline.bindings.vim import source_plugin; source_plugin()
+" source ~/.vim/bundle/powerline-develop/powerline/bindings/vim/plugin/source_plugin.vim
 
-
+" can't seem to get working
+"""" Syntastic settings
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"
+"let g:syntastic_enable_signs=1
+"let g:syntastic_check_on_open=1

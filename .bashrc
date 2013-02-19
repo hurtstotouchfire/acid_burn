@@ -1,7 +1,7 @@
 ###
 #     File:                  x
 #     Author:                Austin Soplata, of austin.soplata@gmail.com
-#     Last Modified:         Thu Jan 31 03:03 AM 2013 EST
+#     Last Modified:         Fri Feb 15 11:05 AM 2013 EST
 #     Project:               x
 #     Known Dependencies:    x
 #     Inputs:                x
@@ -66,6 +66,7 @@ prompt
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:~/clang_compiler_stuff/build/Debug+Asserts/bin
+PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
 export TERM="screen-256color"
 
@@ -84,7 +85,7 @@ alias sudo="sudo "
 alias ctags="/usr/local/bin/ctags"
 alias port="/opt/local/bin/port"
 alias c="clang++ -stdlib=libc++ -std=c++11"
-alias tmuxre="tmux new-session -t Spcejt9k || tmux new-session -s Spcejt9k"
+alias tmuxre="tmux attach -t Spcejt9k || tmux new -s Spcejt9k"
 alias p3="python3"
 alias batt="upower -i /org/freedesktop/UPower/devices/battery_BAT0"
 
@@ -95,11 +96,15 @@ alias la="ls -aG"
 alias rm="rm -i "
 
 alias grep="grep --color=auto"
-alias pgrep="ps aux | grep grep -v | grep "
+alias pgrep="ps aux | grep grep -v | grep -i"
+
+alias killm="source ~/.bashrc; kill $(ps aux | grep grep -v | grep -i MATLAB_maci64 | tr ' ' '\n' | grep [0-9] -m 1)"
+
+
 
 alias ..="cd .."
 alias sb="source ~/.bashrc"
-alias svim="sudo vim "
+alias sv="sudo vim "
 alias vs="vim -S ~/Dropbox/Session.vim"
 alias svs="sudo vim -S ~/Dropbox/Session.vim"
 
@@ -115,7 +120,15 @@ alias gca="git commit -a "
 alias gpo="git push origin "
 
 # Variables, including location ones
-export alpha=~/Dropbox/rsh/kopell/project_alpha
+export alpha=~/Dropbox/rsh/kopell/project_alpha/code
 export progz=~/Dropbox/progz/acid_burn
-export cpp=~/Dropbox/progz/src/cpp/cpp_primer
+export cpp=~/Dropbox/progz/src/cpp
 export b=~/.bashrc
+
+### Nginx config notes
+# nginx.conf's location is in this variable
+export nc=/usr/local/etc/nginx/nginx.conf
+# the html directory here has the actual files for the webserver
+export nh='/usr/local/Cellar/nginx/1.2.6/html'
+# actually used
+export www='/Users/wintermute/www'
