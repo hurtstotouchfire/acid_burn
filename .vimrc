@@ -1,7 +1,7 @@
 """
     "'File:                   .vimrc
     "' Author:                Austin Soplata, of austin.soplata@gmail.com
-    "' Last Modified:         Wed Feb 06 11:57 AM 2013 EST
+    "' Last Modified:         Thu Mar 21 07:11 PM 2013 EDT
     "' Known Dependencies:    lastchange.vim in ~/.vim/plugin
     "' Inputs:                x
     "' Outputs:               x
@@ -36,6 +36,16 @@
 "
 " Evervim usage
 " do ':EvervimNotebookList'
+"
+""" Installing 'matchit.vim' for '%' match of html tags
+" Generally must
+"       'cd .vim/plugin
+"       ln -vs /usr/local/share/vim/vim70/macros/matchit.vim
+"       cd ../doc
+"       ln -vs /usr/local/share/vim/vim70/macros/matchit.txt
+"       vim --cmd "helptags . |quit"
+" In my current case (2013_03_21:19:11) it's in
+"   /usr/local/Cellar/vim/7.3.682/share/vim/vim73/macros
 """ end of tips, beginning of real buzinez
 
 "General Settings._____________________________________________________________
@@ -99,14 +109,15 @@ call pathogen#infect()
 call pathogen#helptags()
 
 " Solarized theme install.____________________________________________________
+colorscheme solarized
 se t_Co=256
 let g:solarized_termcolors = 256
 let g:solarized_visibility = "high"
 let g:solarized_contrast = "high"
 syntax enable
 set background=dark
-colorscheme solarized
 let g:solarized_termtrans = 1
+colorscheme solarized
 
 " General Plugin Settings (appear to must go after Pathogen).__________________
 filetype plugin on
@@ -133,7 +144,7 @@ inoremap <c-l> <c-w>
 map 9 $
 
 "map space to insert just one character
-nnoremap <Space> i_<Esc>r
+nnoremap <ENTER> i_<Esc>r
 
 " On OSX, uses sys calls to copy to/from clipboard in insert mode
 vmap <C-c> y:call system("pbcopy", getreg("\""))<CR>
@@ -161,6 +172,8 @@ let maplocalleader="\\"
 ""Go crazy with this!
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
+nmap <silent> <leader>eb :e /Users/wintermute/.bashrc<CR>
+nmap <silent> <leader>sb :so ~/.bashrc<CR>
 
 "opens file, eg new tab in default browser, for current file
 nmap <leader>o :!open % &<CR><CR>
@@ -219,7 +232,10 @@ let NERDTreeShowHidden=1
 " can adjust NERDTreeWinSize ?
 
 "" Taglist
-nmap <C-g> :TlistToggle<CR>
+" nmap <C-g> :TlistToggle<CR>
+
+"" Tagbar (includes scoping, instead of Taglist?)
+nmap <C-g> :TagbarToggle<CR>
 
 "" Command-T
 nmap <leader>t :CommandT<CR>
@@ -232,8 +248,8 @@ let g:indent_guides_enable_on_vim_startup = 1
 set ts=4
 set sw=4
 "set background=dark
-hi IndentGuidesOdd  ctermbg=8
-hi IndentGuidesEven ctermbg=56
+hi IndentGuidesOdd  ctermbg=22
+hi IndentGuidesEven ctermbg=18
 
 "" Configure tags - add additional tags here or comment out not-used ones
 set tags+=~/.vim/tags/cpp
@@ -243,7 +259,7 @@ map <leader><leader>c :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra
 " for xptemplate, the c++ snippets, type e.g. 'for' then <C-\> FORWARD slash
 
 "" For Easymotion, default is <leader><leader>w which is a whole nother level!
-" let g:EasyMotion_leader_key = '<leader>w'
+let g:EasyMotion_leader_key = '<Space>'
 
 "" clang_complete
 let g:clang_complete_copen=1 "auto opens quickfix window on error
@@ -262,3 +278,7 @@ let g:clang_complete_auto=1 "auto complete?
 "
 "let g:syntastic_enable_signs=1
 "let g:syntastic_check_on_open=1
+"
+""" Ctrl-P (file search) settings; will prolly replace Command-T
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'

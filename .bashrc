@@ -1,7 +1,7 @@
 ###
 #     File:                  x
 #     Author:                Austin Soplata, of austin.soplata@gmail.com
-#     Last Modified:         Fri Feb 15 11:05 AM 2013 EST
+#     Last Modified:         Fri Mar 22 12:12 AM 2013 EDT
 #     Project:               x
 #     Known Dependencies:    x
 #     Inputs:                x
@@ -67,6 +67,7 @@ prompt
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:~/clang_compiler_stuff/build/Debug+Asserts/bin
 PATH=/usr/local/bin:/usr/local/sbin:$PATH
+export PATH=/Library/Frameworks/Python.framework/Versions/3.3/bin:$PATH
 
 export TERM="screen-256color"
 
@@ -87,6 +88,7 @@ alias port="/opt/local/bin/port"
 alias c="clang++ -stdlib=libc++ -std=c++11"
 alias tmuxre="tmux attach -t Spcejt9k || tmux new -s Spcejt9k"
 alias p3="python3"
+alias ip3="ipython3"
 alias batt="upower -i /org/freedesktop/UPower/devices/battery_BAT0"
 
 # Bash aliases/shortcuts
@@ -95,10 +97,10 @@ alias ll="ls -laG"
 alias la="ls -aG"
 alias rm="rm -i "
 
-alias grep="grep --color=auto"
+alias grep="grep --color=auto -n"
 alias pgrep="ps aux | grep grep -v | grep -i"
 
-alias killm="source ~/.bashrc; kill $(ps aux | grep grep -v | grep -i MATLAB_maci64 | tr ' ' '\n' | grep [0-9] -m 1)"
+alias km="source ~/.bashrc; kill $(ps aux | grep grep -v | grep -i MATLAB_maci64 | tr ' ' '\n' | grep [0-9] -m 1)"
 
 
 
@@ -121,8 +123,10 @@ alias gpo="git push origin "
 
 # Variables, including location ones
 export alpha=~/Dropbox/rsh/kopell/project_alpha/code
+export shin=~/Dropbox/rsh/kopell/project_alpha/code/shinung_cpp
 export progz=~/Dropbox/progz/acid_burn
 export cpp=~/Dropbox/progz/src/cpp
+export py=~/Dropbox/progz/src/python
 export b=~/.bashrc
 
 ### Nginx config notes
