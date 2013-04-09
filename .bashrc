@@ -1,7 +1,7 @@
 ###
 #     File:                  x
 #     Author:                Austin Soplata, of austin.soplata@gmail.com
-#     Last Modified:         Fri Apr 05 05:54 PM 2013 EDT
+#     Last Modified:         Tue Apr 09 07:29 PM 2013 EDT
 #     Project:               x
 #     Known Dependencies:    x
 #     Inputs:                x
@@ -40,11 +40,12 @@
 # 'done'
 # For this, the loop variable's value '$ii' seems to iterate through the actual
 # values, rather than, say a numerical index.
-
+#
 ## '$ (sleep 5; echo Tea is ready) &'
-
+#
 ## 'column -t' does something?
-
+#
+# 'find / -name 'derp.txt' ' takes long, just use 'locate derp.txt'
 
 ### Prettification ###########################################################
 function prompt
@@ -79,6 +80,8 @@ export PYTHONPATH=$PYTHONPATH:~/Dropbox/progz/src/python
 # needed for Timing app to track stuff?
 PROMPT_TITLE='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/~}\007"'
 export PROMPT_COMMAND="${PROMPT_COMMAND} ${PROMPT_TITLE}; "
+
+export EDITOR=/usr/bin/vim
 
 # vim: set textwidth=0 :
 
@@ -143,3 +146,7 @@ export nc=/usr/local/etc/nginx/nginx.conf
 export nh='/usr/local/Cellar/nginx/1.2.6/html'
 # actually used
 export www='/Users/wintermute/www'
+
+### Nginx server file directory locations
+export sh='/usr/share/nginx/html/'
+export sc='/etc/nginx/sites-enabled/'
