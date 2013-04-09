@@ -1,7 +1,7 @@
 ###
 #     File:                  x
 #     Author:                Austin Soplata, of austin.soplata@gmail.com
-#     Last Modified:         Fri Mar 22 12:12 AM 2013 EDT
+#     Last Modified:         Fri Apr 05 05:54 PM 2013 EDT
 #     Project:               x
 #     Known Dependencies:    x
 #     Inputs:                x
@@ -43,6 +43,7 @@
 
 ## '$ (sleep 5; echo Tea is ready) &'
 
+## 'column -t' does something?
 
 
 ### Prettification ###########################################################
@@ -64,12 +65,16 @@ function prompt
 }
 prompt
 
+
+### Environment variables ####################################################
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:~/clang_compiler_stuff/build/Debug+Asserts/bin
 PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export PATH=/Library/Frameworks/Python.framework/Versions/3.3/bin:$PATH
 
 export TERM="screen-256color"
+
+export PYTHONPATH=$PYTHONPATH:~/Dropbox/progz/src/python
 
 # needed for Timing app to track stuff?
 PROMPT_TITLE='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/~}\007"'
@@ -100,7 +105,9 @@ alias rm="rm -i "
 alias grep="grep --color=auto -n"
 alias pgrep="ps aux | grep grep -v | grep -i"
 
-alias km="source ~/.bashrc; kill $(ps aux | grep grep -v | grep -i MATLAB_maci64 | tr ' ' '\n' | grep [0-9] -m 1)"
+# alias km="source ~/.bashrc; kill $(ps aux | grep grep -v | grep -i MATLAB_maci64 | tr ' ' '\n' | grep [0-9] -m 1)"
+alias km="source ~/.bashrc ; kill $(ps aux | grep grep -v | grep -i \
+    MATLAB_maci64 | column -t | tr ' ' '\n' | sed -n 3p)"
 
 
 
