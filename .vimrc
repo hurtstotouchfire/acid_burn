@@ -1,7 +1,7 @@
 """
     "'File:                   .vimrc
     "' Author:                Austin Soplata, of austin.soplata@gmail.com
-    "' Last Modified:         Tue Apr 02 04:32 PM 2013 EDT
+    "' Last Modified:         Thu Apr 18 04:33 PM 2013 EDT
     "' Known Dependencies:    lastchange.vim in ~/.vim/plugin
     "' Inputs:                x
     "' Outputs:               x
@@ -102,6 +102,9 @@ set shortmess+=O
 
 set clipboard=unnamed
 
+" When opening new buffer, changes directory of that vim-window to that buffer.
+set autochdir
+
 " Pathogen install.___________________________________________________________
 "for pathogen plugin help, can easily access plugins at ~/.vim/bundle at runtime
 "if get new plugins, can just throw into /bundle and they magically work?
@@ -149,16 +152,24 @@ nnoremap <ENTER> i_<Esc>r
 " On OSX, uses sys calls to copy to/from clipboard in insert mode
 vmap <C-c> y:call system("pbcopy", getreg("\""))<CR>
 " was mapped to <C-v>, but need Visual Block
-nnoremap <C-k> :call setreg("\"",system("pbpaste"))<CR>p
+""" "nnoremap <C-k> :call setreg("\"",system("pbpaste"))<CR>p
 
 " In insert mode, autocloses parentheses, brackets, braces, single and dub q's
 inoremap ( ()<Left>
 inoremap [ []<Left>
 inoremap { {}<Left>
 au BufEnter *.html inoremap < <lt>><Left>
+au BufEnter *.html inoremap ' ''<Left>
+au BufEnter *.html inoremap " ""<Left>
 au BufEnter *.tex inoremap $ $$<Left>
 " omfg...could not figure out the same html thing in cpp and ahve it work
 " au BufEnter *.cpp imap <lt> <lt><lt><Right>
+
+" Easier window navigation"
+" nnoremap <C-J> <C-W><C-J> " interferes with tmux <C-j> binding
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 " For m-files, when type 'for,', automagically make an 'end' on the line below
 " NOTE 2012_10_05, this has been superseded by xptemplate snippets.
