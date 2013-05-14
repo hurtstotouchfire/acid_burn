@@ -1,7 +1,7 @@
 ###
 #     File:                  x
 #     Author:                Austin Soplata, of austin.soplata@gmail.com
-#     Last Modified:         Tue Apr 09 07:29 PM 2013 EDT
+#     Last Modified:         Sat May 11 01:13 PM 2013 EDT
 #     Project:               x
 #     Known Dependencies:    x
 #     Inputs:                x
@@ -83,8 +83,8 @@ export PROMPT_COMMAND="${PROMPT_COMMAND} ${PROMPT_TITLE}; "
 
 export EDITOR=/usr/bin/vim
 
-# vim: set textwidth=0 :
-
+### Enable vi mode FOR MAXIMUM POWAH #########################################
+set -o vi
 
 ### Program aliases/shortcuts/variables ######################################
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
@@ -150,3 +150,18 @@ export www='/Users/wintermute/www'
 ### Nginx server file directory locations
 export sh='/usr/share/nginx/html/'
 export sc='/etc/nginx/sites-enabled/'
+
+
+
+
+### Reverse search
+# up and down keys search through history like in MATLAB
+# bind '"^[[A": history-search-backward'
+# bind '"^[[B": history-search-forward'
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
+
+
+
+
+# vim: set textwidth=0 :

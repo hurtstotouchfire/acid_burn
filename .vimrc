@@ -1,7 +1,7 @@
 """
     "'File:                   .vimrc
     "' Author:                Austin Soplata, of austin.soplata@gmail.com
-    "' Last Modified:         Thu Apr 18 04:33 PM 2013 EDT
+    "' Last Modified:         Tue May 14 03:25 PM 2013 EDT
     "' Known Dependencies:    lastchange.vim in ~/.vim/plugin
     "' Inputs:                x
     "' Outputs:               x
@@ -91,8 +91,8 @@ set modeline
 set ls=2
 
 " from http://nvie.com/posts/how-i-boosted-my-vim/ highlights whitespaces:
-set list
-set listchars=tab:>.,trail:.,extends:#,nbsp:.
+" set list
+" set listchars=tab:>.,trail:.,extends:#,nbsp:.
 
 " for some weird reason, backspace was only working to insert instance
 set backspace=2
@@ -103,7 +103,7 @@ set shortmess+=O
 set clipboard=unnamed
 
 " When opening new buffer, changes directory of that vim-window to that buffer.
-set autochdir
+" set autochdir
 
 " Pathogen install.___________________________________________________________
 "for pathogen plugin help, can easily access plugins at ~/.vim/bundle at runtime
@@ -195,6 +195,7 @@ nmap <leader>h :lcd ~/Dropbox<CR>
 nmap <leader>s :mksession! ~/Dropbox/Session.vim<CR>
 nmap <leader>i I$ <esc>$l
 nmap <leader>di I<del><del><esc>$
+nmap <leader>m :w<CR>:!make<CR>
 
 "for .tex, changed path of buffer to that of current file and prints it
 " au BufEnter *.tex
@@ -222,6 +223,8 @@ nmap = :w<CR>
 autocmd FileType cpp nnoremap <buffer> <localleader>p :!clang++ -stdlib=libc++ -std=c++11 -o %.out % ; ./%.out
 autocmd FileType cpp nnoremap <buffer> <localleader>c I// <esc>$
 autocmd FileType cpp nnoremap <buffer> <localleader>dc I<del><del><del><esc>$
+autocmd FileType c nnoremap <buffer> <localleader>c I// <esc>$
+autocmd FileType c nnoremap <buffer> <localleader>dc I<del><del><del><esc>$
 autocmd FileType matlab nnoremap <buffer> <localleader>c I% <esc>$
 autocmd FileType matlab nnoremap <buffer> <localleader>dc I<del><del><esc>$
 autocmd FileType tex nnoremap <buffer> <localleader>c I% <esc>$
@@ -293,3 +296,8 @@ let g:clang_complete_auto=1 "auto complete?
 """ Ctrl-P (file search) settings; will prolly replace Command-T
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+
+""" Makefile necessary stuff according to shane, 2013_05_10
+au BufRead,BufNewFile Makefile* set noexpandtab
+au BufRead,BufNewFile makefile* set noexpandtab
+""au FileType make setlocal noexpandtab
