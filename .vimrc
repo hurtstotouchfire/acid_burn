@@ -1,7 +1,7 @@
 """
     "'File:                   .vimrc
     "' Author:                Austin Soplata, of austin.soplata@gmail.com
-    "' Last Modified:         Tue May 14 03:25 PM 2013 EDT
+    "' Last Modified:         Wed May 15 12:40 PM 2013 EDT
     "' Known Dependencies:    lastchange.vim in ~/.vim/plugin
     "' Inputs:                x
     "' Outputs:               x
@@ -73,10 +73,10 @@ set scrolloff=2 "keeps at least 2 lines shown around the cursor
 
 set autoindent "does 'dumb' indent, where automatically indents similar to previous line
 " These tab fixtures, predominantly for python, from http://www.velocityreviews.com/forums/t539545-vim-whats-a-smarttab.html
+set expandtab "Replaces a <TAB> with spaces--more portable
 set tabstop=4 "4 space tab
 set shiftwidth=4 "The amount to block indent when using < and >
 set smarttab "Uses shiftwidth instead of tabstop at start of lines
-set expandtab "Replaces a <TAB> with spaces--more portable
 set softtabstop=4 "Causes backspace to delete 4 spaces = converted <TAB>
 
 set textwidth=80 "makes a hard line break at 76

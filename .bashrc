@@ -1,7 +1,7 @@
 ###
 #     File:                  x
 #     Author:                Austin Soplata, of austin.soplata@gmail.com
-#     Last Modified:         Sat May 11 01:13 PM 2013 EDT
+#     Last Modified:         Wed May 15 12:42 PM 2013 EDT
 #     Project:               x
 #     Known Dependencies:    x
 #     Inputs:                x
@@ -138,6 +138,7 @@ export progz=~/Dropbox/progz/acid_burn
 export cpp=~/Dropbox/progz/src/cpp
 export py=~/Dropbox/progz/src/python
 export b=~/.bashrc
+export tc=~/Dropbox/rsh/kopell/project_alpha/code/bitbucket/tc-re
 
 ### Nginx config notes
 # nginx.conf's location is in this variable
