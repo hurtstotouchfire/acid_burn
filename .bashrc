@@ -1,7 +1,7 @@
 ###
 #     File:                  x
 #     Author:                Austin Soplata, of austin.soplata@gmail.com
-#     Last Modified:         Wed May 15 12:42 PM 2013 EDT
+#     Last Modified:         Wed Jun 19 12:28 PM 2013 EDT
 #     Project:               x
 #     Known Dependencies:    x
 #     Inputs:                x
@@ -75,7 +75,7 @@ export PATH=/Library/Frameworks/Python.framework/Versions/3.3/bin:$PATH
 
 export TERM="screen-256color"
 
-export PYTHONPATH=$PYTHONPATH:~/Dropbox/progz/src/python
+export PYTHONPATH=$PYTHONPATH:~/Dropbox/progz/src/python:/usr/local/Cellar/python/2.7.3/Frameworks/Python.framework/Versions/2.7/include/python2.7
 
 # needed for Timing app to track stuff?
 PROMPT_TITLE='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/~}\007"'
@@ -163,6 +163,7 @@ bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
 
 
+# lol hello nick
 
 
 # vim: set textwidth=0 :

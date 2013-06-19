@@ -1,7 +1,7 @@
 """
     "'File:                   .vimrc
     "' Author:                Austin Soplata, of austin.soplata@gmail.com
-    "' Last Modified:         Wed May 15 12:40 PM 2013 EDT
+    "' Last Modified:         Fri Jun 07 08:51 PM 2013 EDT
     "' Known Dependencies:    lastchange.vim in ~/.vim/plugin
     "' Inputs:                x
     "' Outputs:               x
@@ -162,6 +162,8 @@ au BufEnter *.html inoremap < <lt>><Left>
 au BufEnter *.html inoremap ' ''<Left>
 au BufEnter *.html inoremap " ""<Left>
 au BufEnter *.tex inoremap $ $$<Left>
+au BufEnter *.py inoremap ' ''<Left>
+au BufEnter *.py inoremap " ""<Left>
 " omfg...could not figure out the same html thing in cpp and ahve it work
 " au BufEnter *.cpp imap <lt> <lt><lt><Right>
 
