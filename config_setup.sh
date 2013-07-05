@@ -44,25 +44,25 @@ if [ -f .vimrc ];
 then
     $(mv .vimrc .vimrc_old_$DATE)
 fi
-$(ln -s .vimrc acid_burn/.vimrc)
+$(ln -s acid_burn/.vimrc .vimrc)
 
 if [ -d .vim]; 
 then
     $(mv .vim .vim_old_$DATE)
 fi
-$(ln -s .vim acid_burn/.vim)
+$(ln -s acid_burn/.vim .vim)
 
 if [ -f .bashrc ]; 
 then
     $(mv .bashrc .bashrc_old_$DATE)
 fi
-$(ln -s .bashrc acid_burn/.bashrc)
+$(ln -s acid_burn/.bashrc .bashrc)
 
 if [ -f .tmux.conf ]; 
 then
     $(mv .tmux.conf .tmux.conf_old_$DATE)
 fi
-$(ln -s .tmux.conf acid_burn/.tmux.conf)
+$(ln -s acid_burn/.tmux.conf .tmux.conf)
 
 
 
