@@ -1,7 +1,7 @@
 ###
 #     File:                  x
 #     Author:                Austin Soplata, of austin.soplata@gmail.com
-#     Last Modified:         Wed Jun 19 12:28 PM 2013 EDT
+#     Last Modified:         Fri Jul 05 03:26 PM 2013 EDT
 #     Project:               x
 #     Known Dependencies:    x
 #     Inputs:                x
@@ -68,14 +68,22 @@ prompt
 
 
 ### Environment variables ####################################################
+# from "The Unix Prog Env", 'export' is used when you want an env vbl to exist in all shells and subshells, since if you use a live, new env vbl in the shell, the sub-shell will not change the current shell's instance of that vbl; one must use "." to run the script where you can modify that env vbl
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:~/clang_compiler_stuff/build/Debug+Asserts/bin
 PATH=/usr/local/bin:/usr/local/sbin:$PATH
-export PATH=/Library/Frameworks/Python.framework/Versions/3.3/bin:$PATH
+PATH=$PATH:$HOME/bin
+PATH=$PATH:/Users/wintermute/Dropbox/rsh/kopell/project_alpha/code/bitbucket/tc-re/bin
+export PATH=/usr/local/Cellar/python/2.7.3/Frameworks/Python.framework/Versions/2.7/include/python2.7:$PATH:/usr/local/lib/python2.7/site-packages
+# below from http://iainhunter.wordpress.com/2012/11/08/howto-install-python3-pip3-tornado-on-mac/
+# export PATH=/Library/Frameworks/Python.framework/Versions/3.3:$PATH
 
 export TERM="screen-256color"
 
-export PYTHONPATH=$PYTHONPATH:~/Dropbox/progz/src/python:/usr/local/Cellar/python/2.7.3/Frameworks/Python.framework/Versions/2.7/include/python2.7
+# Allows 3.3 usage of matplotlib etc. :
+# export PYTHONPATH=$PYTHONPATH:~/Dropbox/progz/src/python:/usr/local/Cellar/python/2.7.3/Frameworks/Python.framework/Versions/2.7/include/python2.7:/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages:/usr/local/lib/python2.7/site-packages
+# 2.7 only:
+# export PYTHONPATH=$PYTHONPATH:~/Dropbox/progz/src/python:/usr/local/Cellar/python/2.7.3/Frameworks/Python.framework/Versions/2.7/include/python2.7:/usr/local/lib/python2.7/site-packages
 
 # needed for Timing app to track stuff?
 PROMPT_TITLE='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/~}\007"'
@@ -93,8 +101,10 @@ alias matlab="/Applications/MATLAB_R2011b.app/bin/matlab"
 alias sudo="sudo "
 alias ctags="/usr/local/bin/ctags"
 alias port="/opt/local/bin/port"
-alias c="clang++ -stdlib=libc++ -std=c++11"
+alias cpp="clang++ -stdlib=libc++ -std=c++11"
 alias tmuxre="tmux attach -t Spcejt9k || tmux new -s Spcejt9k"
+alias p="python"
+alias ip="ipython"
 alias p3="python3"
 alias ip3="ipython3"
 alias batt="upower -i /org/freedesktop/UPower/devices/battery_BAT0"
@@ -106,13 +116,12 @@ alias la="ls -aG"
 alias rm="rm -i "
 
 alias grep="grep --color=auto -n"
+alias egrep="egrep --color=auto -n"
 alias pgrep="ps aux | grep grep -v | grep -i"
 
 # alias km="source ~/.bashrc; kill $(ps aux | grep grep -v | grep -i MATLAB_maci64 | tr ' ' '\n' | grep [0-9] -m 1)"
 alias km="source ~/.bashrc ; kill $(ps aux | grep grep -v | grep -i \
     MATLAB_maci64 | column -t | tr ' ' '\n' | sed -n 3p)"
-
-
 
 alias ..="cd .."
 alias sb="source ~/.bashrc"
@@ -136,9 +145,11 @@ export alpha=~/Dropbox/rsh/kopell/project_alpha/code
 export shin=~/Dropbox/rsh/kopell/project_alpha/code/shinung_cpp
 export progz=~/Dropbox/progz/acid_burn
 export cpp=~/Dropbox/progz/src/cpp
+export c=~/Dropbox/progz/src/c
 export py=~/Dropbox/progz/src/python
 export b=~/.bashrc
 export tc=~/Dropbox/rsh/kopell/project_alpha/code/bitbucket/tc-re
+export erik=~/Dropbox/rsh/kopell/erik/summer13
 
 ### Nginx config notes
 # nginx.conf's location is in this variable

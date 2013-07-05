@@ -1,7 +1,7 @@
 """
     "'File:                   .vimrc
     "' Author:                Austin Soplata, of austin.soplata@gmail.com
-    "' Last Modified:         Fri Jun 07 08:51 PM 2013 EDT
+    "' Last Modified:         Thu Jul 04 08:45 PM 2013 EDT
     "' Known Dependencies:    lastchange.vim in ~/.vim/plugin
     "' Inputs:                x
     "' Outputs:               x
@@ -79,7 +79,7 @@ set shiftwidth=4 "The amount to block indent when using < and >
 set smarttab "Uses shiftwidth instead of tabstop at start of lines
 set softtabstop=4 "Causes backspace to delete 4 spaces = converted <TAB>
 
-set textwidth=80 "makes a hard line break at 76
+" set textwidth=80 "makes a hard line break at 76
 au BufEnter *.tex set textwidth=0 "so doesn't apply to tex files
 au BufEnter *.txt set textwidth=0 "so doesn't apply to typical text files
 au BufEnter *.html set textwidth=0 "so doesn't apply to html files
@@ -218,27 +218,35 @@ inoremap jk <esc>
 
 nmap = :w<CR>
 
+" Remaps C-x C-o's VIM-native Omnicompltion to C-space
+" Note: 2013_06_20 doesn't appear to have any effect...maybe need to override map?
+" "inoremap <C-Space> <C-x><C-o>
+
 "Filetype-specific mappings and stuffz_______________________________________
 "
 " assuming pwd is local, automagically compiles and runs prog in this window
 " nmap <localleader>z :!clang++ -o %.out % ; ./%.out
+autocmd FileType c nnoremap <buffer> <localleader>p :!gcc -o %.out % ; ./%.out
+autocmd FileType c nnoremap <buffer> <localleader>c I// <esc>$
+autocmd FileType c nnoremap <buffer> <localleader>dc I<del><del><del><esc>$
 autocmd FileType cpp nnoremap <buffer> <localleader>p :!clang++ -stdlib=libc++ -std=c++11 -o %.out % ; ./%.out
 autocmd FileType cpp nnoremap <buffer> <localleader>c I// <esc>$
 autocmd FileType cpp nnoremap <buffer> <localleader>dc I<del><del><del><esc>$
-autocmd FileType c nnoremap <buffer> <localleader>c I// <esc>$
-autocmd FileType c nnoremap <buffer> <localleader>dc I<del><del><del><esc>$
 autocmd FileType matlab nnoremap <buffer> <localleader>c I% <esc>$
 autocmd FileType matlab nnoremap <buffer> <localleader>dc I<del><del><esc>$
-autocmd FileType tex nnoremap <buffer> <localleader>c I% <esc>$
-autocmd FileType tex nnoremap <buffer> <localleader>dc I<del><del><esc>$
-autocmd FileType tex nnoremap <buffer> <localleader>p :!pdflatex %<CR>
 autocmd FileType ode nnoremap <buffer> <localleader>c I# <esc>$
 autocmd FileType ode nnoremap <buffer> <localleader>dc I<del><del><esc>$
-autocmd FileType python nnoremap <buffer> <localleader>p :!python3 %
+autocmd FileType python nnoremap <buffer> <localleader>p3 :!python3 %
+autocmd FileType python nnoremap <buffer> <localleader>p2 :!python %
 autocmd FileType python nnoremap <buffer> <localleader>c I# <esc>$
 autocmd FileType python nnoremap <buffer> <localleader>dc I<del><del><esc>$
 autocmd FileType sh nnoremap <buffer> <localleader>c I# <esc>$
 autocmd FileType sh nnoremap <buffer> <localleader>dc I<del><del><esc>$
+autocmd FileType tex nnoremap <buffer> <localleader>c I% <esc>$
+autocmd FileType tex nnoremap <buffer> <localleader>dc I<del><del><esc>$
+autocmd FileType tex nnoremap <buffer> <localleader>p :!pdflatex %<CR>
+autocmd FileType txt nnoremap <buffer> <localleader>c I# <esc>$
+autocmd FileType txt nnoremap <buffer> <localleader>dc I<del><del><esc>$
 
 "Plugin-related Information and Mappings._____________________________________
 
